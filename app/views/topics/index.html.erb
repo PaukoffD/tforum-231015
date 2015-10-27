@@ -9,11 +9,17 @@
   </thead>
   
     <tbody>
-  <% for topic in @topics.includes(:posts, :user) %>
+  <% for topic in @topics.includes(:posts, :author, :last_user) %>
     <tr>
-      <td><%= link_to h(topic.subject), topic_path(topic.id) %><%=  topic.user.id %>
-      <td><%= topic.posts.count-1  %></td>
-	  <td>  by  <p><%= link_to topic.user.name, root_path, :class => "text-success"%></p></td>
+      <td><h5><%= link_to h(topic.subject), topic_path(topic.id) %>
+	  </br>
+	  <h6>Created: by <%= link_to topic.author.name, user_path(topic.author) %>    <%= distance_of_time_in_words_to_now topic.last_post_at %> ago </h6>
+	  
+	  </h5>
+      <td><h4><span class="badge"><%= topic.posts.count-1  %></span></a> replies</h4></td>
+	  <td><h6><%= markdown(topic.posts.last.text)  %></br> 
+	  <%= distance_of_time_in_words_to_now topic.updated_at %> ago
+	  by  <%= link_to topic.last_user.name,  user_path(topic.last_user) %></h6></td>
 	  
       
     </tr>

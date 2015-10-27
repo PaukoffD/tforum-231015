@@ -38,6 +38,8 @@ class PostsController < ApplicationController
 	puts "счет " 
 	puts count
 	#@post.reply_to_id = current_user.id
+	@topic.last_id=current_user.id
+	@topic.save
     respond_to do |format|
       if @post.save
         format.html { redirect_to topic_path(@topic.id), notice: 'Post was successfully created.' }
