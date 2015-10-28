@@ -15,7 +15,7 @@
 	  </br>
 	  <h6>Created: by <%= link_to topic.author.name, user_path(topic.author) %>    <%= distance_of_time_in_words_to_now topic.last_post_at %> ago </h6>
 	  
-	  </h5>
+	  </h5></td>
       <td><h4><span class="badge"><%= topic.posts.count-1  %></span></a> replies</h4></td>
 	  <td><h6><%= markdown(topic.posts.last.text)  %></br> 
 	  <%= distance_of_time_in_words_to_now topic.updated_at %> ago
