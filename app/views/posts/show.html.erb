@@ -2,8 +2,8 @@
 
 <p>
   <strong>Text:</strong>
-  <%= @post.text %>
+  <%= markdown(@post.text) %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', post_path(@post.id) %>
+<%= link_to 'Back', topic_posts_path(@post.topic_id) %>

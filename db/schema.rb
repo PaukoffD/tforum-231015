@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028142145) do
+ActiveRecord::Schema.define(version: 20151029083443) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20151028142145) do
     t.string   "slug"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.boolean  "hidden"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 20151028142145) do
     t.integer  "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -54,6 +56,17 @@ ActiveRecord::Schema.define(version: 20151028142145) do
     t.integer  "reply_to_id"
     t.string   "state",       default: "pending_review"
     t.boolean  "notified",    default: false
+  end
+
+  create_table "private_posts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "topic"
+    t.text     "text"
+    t.integer  "user_id_sent"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "state",        default: "pending_review"
+    t.boolean  "notified",     default: false
   end
 
   create_table "topics", force: :cascade do |t|
@@ -91,6 +104,7 @@ ActiveRecord::Schema.define(version: 20151028142145) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "private"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

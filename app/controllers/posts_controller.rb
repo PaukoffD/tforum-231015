@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page])
   end
 
   # GET /posts/1
@@ -15,8 +15,9 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @topic = Topic.find(params[:topic_id])
-    @post = Post.new
-	@post.reply_to_id = 1 
+    @post=Post.new
+	@topic.posts.build
+	#@topic.posts.reply_to_id = 1 
   end
 
   # GET /posts/1/edit
