@@ -8,12 +8,12 @@
     <th width="10%">Views</th>
      </tr>
   </thead>
-  
+  <%  @forum.id   %>
     <tbody>
   <% for topic in @forum.topics %>
   
     <tr>
-      <td><%= link_to h(topic.subject), topic_path(topic.id) %>
+      <td><%= link_to h(topic.subject), topic_path(topic.to_param) %>
 	  </br>
 	  <h6>Created: by <%= link_to topic.author.name, user_path(topic.author) %>    <%= distance_of_time_in_words_to_now topic.last_post_at %> ago </h6>
 	  
@@ -27,3 +27,4 @@
 
 
 <p><%= link_to "New Topic", new_forum_topic_path(@forum.id), :class => "btn btn-primary" %></p>
+<%  puts @forum.id   %>

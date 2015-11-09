@@ -4,6 +4,8 @@ class Topic < ActiveRecord::Base
  belongs_to :last_user, class_name: User, foreign_key: "last_id"
 has_many :posts, :dependent => :destroy
 accepts_nested_attributes_for :posts
+extend FriendlyId
+  friendly_id :subject, use: :slugged
 
 self.per_page = 15
 

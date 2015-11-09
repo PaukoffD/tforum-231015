@@ -1,6 +1,9 @@
 class ForumsController < ApplicationController
   before_action :set_forum, only: [:show, :edit, :update, :destroy]
 
+def normalize_friendly_id(string)
+    string.to_slug.normalize.to_s
+end
   # GET /forums
   # GET /forums.json
   def index
@@ -27,6 +30,7 @@ class ForumsController < ApplicationController
   # POST /forums.json
   def create
     @forum = Forum.new(forum_params)
+	@forum.slug= normalize_friendly_id(@forum.name)
 
     respond_to do |format|
       if @forum.save
@@ -66,11 +70,11 @@ class ForumsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_forum
-      @forum = Forum.find(params[:id])
+      @forum = Forum.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def forum_params
-      params.require(:forum).permit(:name, :description)
+      params.require(:forum).permit(:name, :description, :slug)
     end
 end

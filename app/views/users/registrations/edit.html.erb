@@ -1,7 +1,7 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-horizontal' }) do |f| %>
-    <%= devise_error_messages! %>
+   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-horizontal' }) do |f| %>
+   <%= devise_error_messages! %>
 
 	<div class="form-group">
         <%= f.label :avatar, class: 'col-sm-2 control-label'  %>
@@ -32,9 +32,9 @@
     <% end %>
 
     <div class="form-group">
-        <%= f.label :password, class: 'col-sm-2 control-label'  %> <i>(leave blank if you don't want to change it)</i>
+        <%= f.label :password, class: 'col-sm-2 control-label'  %> </br> <i>(leave blank if you don't want to change it)</i>
         <div class="col-sm-6">
-            <%= f.password_field :password, autocomplete: "off", class: 'form-control'  %>
+            <%= f.password_field :password,   autocomplete: "off", class: 'form-control'   %>
         </div>
     </div>
 

@@ -1,7 +1,11 @@
 class TopicsController < ApplicationController
 #before_filter :find_forum, only: [:show, :edit, :update, :destroy]
 before_action :set_topic, only: [:show, :edit, :update, :destroy]
-  
+
+
+def normalize_friendly_id(string)
+    string.to_slug.normalize.to_s
+end 
 
   def index
    
@@ -15,7 +19,7 @@ before_action :set_topic, only: [:show, :edit, :update, :destroy]
  
   def show
   # @user = User.find(params[:id])
-   @topic = Topic.find(params[:id])
+   @topic = Topic.friendly.find(params[:id])
    #@topic.posts.includes()
    #@post = Post.includes(:user).find_by(topic_id: @topic.id)
    #@user = User.find_by id:  @topic.user_id
@@ -25,15 +29,15 @@ before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   
   def new
-    @forum = Forum.find(params[:forum_id])
+    @forum = Forum.friendly.find(params[:forum_id])
     @topic = Topic.new
-	
+	puts @forum.id
 	@topic.posts.build
   end
 
   # GET /topics/1/edit
   def edit
-  @topic = Topic.find(params[:id])
+  @topic = Topic.friendly.find(params[:id])
   end
 
   
@@ -59,10 +63,11 @@ before_action :set_topic, only: [:show, :edit, :update, :destroy]
 	
 	@post = Post.new 
     @topic.last_post_at = Time.now
+	
 	@topic.user_id = current_user.id
 	@topic.last_id = current_user.id
-	@topic.forum_id = params[:forum_id]
-	
+	#@topic.forum_id = params[:forum_id]
+	puts @topic.forum_id
 	#@post.content = params[:topic][:posts_attributes][:content]
 	@post.topic_id=@topic.id
 	@post.user_id = current_user.id
@@ -72,7 +77,7 @@ before_action :set_topic, only: [:show, :edit, :update, :destroy]
 	puts params[posts_attributes: [:user_id,[:user_id]]]
 	puts params[posts_attributes: [:id,[:text]]]
 	
-	
+	@topic.slug= normalize_friendly_id(@topic.subject)
 	@topic.save
     respond_to do |format|
     #  if @topic.save
@@ -112,7 +117,7 @@ before_action :set_topic, only: [:show, :edit, :update, :destroy]
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_topic
-      @topic = Topic.find(params[:id])
+      @topic = Topic.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

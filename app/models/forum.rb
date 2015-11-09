@@ -3,6 +3,8 @@ class Forum < ActiveRecord::Base
 
  has_many :topics, :dependent => :destroy
  has_many :posts,      :through => :topics, :dependent => :destroy
+ extend FriendlyId
+ friendly_id :name, use: :slugged
  
  def most_recent_post
   topic = Topic.order("created_at DESC")
@@ -30,5 +32,7 @@ def count_reply
  count = Topic.where(forum_id:id).sum(:views_count)
  return count
 end 
+
+ 
 
 end

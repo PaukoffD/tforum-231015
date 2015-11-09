@@ -1,0 +1,15 @@
+private
+
+ def normalize_friendly_id(string)
+    string.to_slug.normalize.to_s
+end 
+ 
+ 
+  def create_slug
+   if forum.slug.blank?
+       self.slug = normalize_friendly_id(forum.name)
+    else
+      summary
+    end
+   
+  end
