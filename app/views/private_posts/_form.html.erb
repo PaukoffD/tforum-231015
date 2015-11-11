@@ -1,0 +1,8 @@
+<%= simple_form_for  [:user,@post] do |f| %>
+   <%= f.error_notification %>
+   <%= f.input :topic, label: "Topic:", class: 'form-control' %>
+   <%= f.input :text, label: "Message:", class: 'form-control', rows: 2,  :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'}} %>
+   <%= f.button :submit %>
+ <% end %>
+ 
+ <%= link_to 'Back', root_path %>
