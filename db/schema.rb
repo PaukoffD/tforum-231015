@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151030122946) do
+ActiveRecord::Schema.define(version: 20151112105851) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20151030122946) do
     t.integer  "reply_to_id"
     t.string   "state",       default: "pending_review"
     t.boolean  "notified",    default: false
+    t.text     "summary"
   end
 
   create_table "private_posts", force: :cascade do |t|

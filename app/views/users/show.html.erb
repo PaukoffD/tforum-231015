@@ -9,8 +9,7 @@
 	<div class="col-sm-4"></div>
                 <%= image_tag(@user.avatar.url(:medium)) %>
             
-    
-	
-	
-</ul>
-<%= link_to 'Write Private', new_user_private_post_path(@user.id), :class => "btn btn-primary", :user => @user %>
+ </ul>
+<% if user_signed_in? %>
+ <%= link_to 'Write Private', new_user_private_post_path(@user.id), :class => "btn btn-primary", :user => @user %>
+<% end %>

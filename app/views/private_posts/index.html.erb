@@ -13,9 +13,13 @@
   <tbody>
     <% @posts.includes(:user).each do |post| %>
       <tr>
-        <td><%= markdown(post.text) %> by <%= link_to post.user.name, user_path(post.user_id) %> at <%= post.updated_at %></td>
-        <
-        
+        <td>
+		<% if post.notified %>
+		 <h6><%= link_to markdown(post.text), user_private_post_path(params[:user_id],post.id) %> by <%= link_to post.user.name, user_path(post.user_id) %> at <%= post.updated_at %></h6>
+		 <% else%>
+         <h6><b><%= link_to markdown(post.text), user_private_post_path(params[:user_id],post.id) %> by <%= link_to post.user.name, user_path(post.user_id) %> at <%= post.updated_at %></b></h6>
+         <% end %>
+		 </td>
       </tr>
     <% end %>
   </tbody>

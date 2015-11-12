@@ -236,6 +236,7 @@ DEPENDENCIES
   friendly_id
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   kaminari-bootstrap
   paperclip (~> 4.1)
   rails (= 4.2.4)

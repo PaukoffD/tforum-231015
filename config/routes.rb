@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
    root 'forums#index'
    get 'latest', to: 'topics#index'
-  
+   get 'search', to: 'topics#search'
 
   
 end

@@ -5,6 +5,7 @@ class Forum < ActiveRecord::Base
  has_many :posts,      :through => :topics, :dependent => :destroy
  extend FriendlyId
  friendly_id :name, use: :slugged
+ self.per_page = 15
  
  def most_recent_post
   topic = Topic.order("created_at DESC")

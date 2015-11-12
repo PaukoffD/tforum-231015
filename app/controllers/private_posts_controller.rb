@@ -4,15 +4,32 @@ class PrivatePostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    PrivatePost.order(:created_at).reorder('id DESC')
-    @posts = PrivatePost.all.page(params[:page])
+    
+    @posts = PrivatePost.all.order(:created_at).reorder('id DESC').page(params[:page])
+	#PrivatePost.order(:created_at).reorder('id DESC')
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+   @post=PrivatePost.find((params[:id]))
+   @user=User.find(params[:user_id])
+   if !@post.notified
+    @user.private=@user.private-1
+	puts @user.private
+	@post.notified=true
+   end
+   @user.save
+   @post.save
   end
 
+   def search
+  
+   @user=User.find(params[:user_id])
+   @post=PrivatePost.new
+  end
+  
+  
   # GET /posts/new
   def new
     @user=User.find(params[:user_id])
@@ -89,5 +106,6 @@ class PrivatePostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def private_post_params
       params.require(:private_post).permit(:text, :user_id, :topic, :user_id_sent)
+	  params.require(:user).permit(:private)
     end
 end
