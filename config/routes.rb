@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:index, :show]
  
-  #resources :topics
+  resources :categories
   resources :forums do 
    resources :topics , shallow: true do
     resources :posts, shallow: true

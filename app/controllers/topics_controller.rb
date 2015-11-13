@@ -12,8 +12,7 @@ end
     @topics = Topic.order(:created_at).reorder('id DESC').all.page(params[:page])
     #topic=Topic.order(:created_at).reorder('id DESC').last
 	#@forum = Forum.find(topic.forum_id)
-	#@post = Post.find_by topic_id: topic.id
-	#return forum
+	
   end
 
  
@@ -45,7 +44,6 @@ end
   def new
     @forum = Forum.friendly.find(params[:forum_id])
     @topic = Topic.new
-	puts @forum.id
 	@topic.posts.build
   end
 
