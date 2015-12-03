@@ -1,7 +1,19 @@
+	
 
-<h1>DUMMY RUBY FORUM</h1>
+<center><div class="col-sm-6"></div>
+                <%= image_tag 'orientaltea.jpg', size: '1140x200' %>
+</center>
 
-<table class="table  cellspacing='0'">
+  <% @category.each do |category| %>
+    <nav class="navbar navbar-primary">
+      
+      <ul class="nav navbar-nav">
+        
+        <h4><li class="active"><%= category.name %><span class="sr-only">(current)</span></li></h4>
+		</ul>
+	  	</nav>
+    	 
+  <table class="table  cellspacing='5'">
   <thead>
     <tr>
 	  <th width="30%">Forum</th>
@@ -16,25 +28,14 @@
   
   
   <tbody>
-  <% tmp=0 %>
+ 
   <tr class="info">
-    <% @forums.includes(:category).each do |forum| %>
-      <tr>
-	  
-	 <% puts tmp %> 
-	 <% forum.category.id %>  
-	  
-	 <% if !tmp=forum.category.id %>  
-	  <nav class="navbar navbar-primary">
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        
-        <li class="active"><%= forum.category.name %><span class="sr-only">(current)</span></li>
-		</div>   
-      </nav>
-	  <% end %>
+   <tr>
+    <% category.forums.each do |forum| %>
+   
+		
 	   
-		<td><h4><%= link_to h(forum.name), forum_path(forum.to_param) %> </h4>
+		  <td><h4><%= link_to h(forum.name), forum_path(forum.to_param) %> </h4>
 
         <%=h forum.description %></td>
 		
@@ -55,14 +56,16 @@
 		<td class="right">
 		<h4><span class="badge"><%= forum.count_reply %></span></a> views</h4>
 		</td>
-     <% tmp=forum.category.id %>
+     
+	  	</nav>
       </tr>
+	 
     <% end %>
+
+	
   </tbody>
 </table>
-
-
-<br>
+ <% end %>
 
 <% if user_signed_in? %>
  <% if current_user.admin %>

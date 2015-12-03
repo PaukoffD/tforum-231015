@@ -14,7 +14,14 @@ end
 	#@forum = Forum.find(topic.forum_id)
 	
   end
-
+  
+def top
+    #count = Post.where(topic_id: @topic.id).count
+    @topics = Topic.order('views_count DESC').all.page(params[:page])
+    #topic=Topic.order(:created_at).reorder('id DESC').last
+	#@forum = Forum.find(topic.forum_id)
+	
+  end
  
   def show
   # @user = User.find(params[:id])
@@ -27,14 +34,17 @@ end
   end
 
   def search
+  
     #@articles = this_blog.articles_matching(params[:q], page: params[:page], per_page: this_blog.per_page(params[:format]))
     #return error! if @articles.empty?
     #@page_title = this_blog.search_title_template.to_title(@articles, this_blog, params)
     #@description = this_blog.search_desc_template.to_title(@articles, this_blog, params)
-    #respond_to do |format|
+    respond_to do |format|
     #  format.html { render 'search' }
      # format.rss { render 'index_rss_feed', layout: false }
      # format.atom { render 'index_atom_feed', layout: false }
+	 format.html { render 'index' }
+	 end
     end
   
   
@@ -69,7 +79,7 @@ end
   #else
    # render :action => 'new'
   #end
-	
+	@user = User.find(current_user.id)
 	
 	
 	
@@ -84,11 +94,8 @@ end
 	@post.topic_id=@topic.id
 	@post.user_id = current_user.id
 	#@post.save
-	
-	
-	puts params[posts_attributes: [:user_id,[:user_id]]]
-	puts params[posts_attributes: [:id,[:text]]]
-	
+	@user.count_message=@user.count_message+1	
+	@user.save
 	@topic.slug= normalize_friendly_id(@topic.subject)
 	@topic.save
     respond_to do |format|
@@ -135,6 +142,7 @@ end
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
       params.require(:topic).permit!
+	  #params.require(:user).permit!
 	  #(:subject, :user_id, :last_post_at, :last_id, :forum_id, :topic_id, posts_attributes: [:id,[:user_id]], posts_attributes: [:id,[:text]] )
     end
 end

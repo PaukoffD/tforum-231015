@@ -6,6 +6,16 @@ def normalize_friendly_id(string)
 end
   # GET /forums
   # GET /forums.json
+  
+ def tools
+    @categories= Category.all
+    @forums = Forum.all
+	#@topic=Topic.last
+	#@topic= Topic.find(most_recent_post)
+  end 
+  
+  
+  
   def index
     @category= Category.all
     @forums = Forum.all
@@ -76,6 +86,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def forum_params
-      params.require(:forum).permit(:name, :description, :slug)
+      params.require(:forum).permit(:name, :description, :slug, :category_id)
     end
 end

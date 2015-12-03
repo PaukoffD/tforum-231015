@@ -25,13 +25,13 @@
                         <span class="icon-bar"></span>
 						
                     </button>
-                    <%= link_to "Dummy Ruby Forum", root_path, class: 'navbar-brand' %>
+                    <%= link_to "Клуб любителей чая", root_path, class: 'navbar-brand' %>
                 </div>
 				
 				
 				
 
-                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+               
 
                     <ul class="nav navbar-nav navbar-right">
                          
@@ -45,7 +45,7 @@
 							<% if current_user.admin %>
 							
                              <li><%= link_to 'Administrate', rails_admin_path %></li>
-							 <li><%= link_to 'Tools', categories_path %></li>
+							 <li><%= link_to 'Tools', tools_path %></li>
                           <% end %> 
                          <% else %>
                              <li><%= link_to 'Login', new_user_session_path %></li>
@@ -55,33 +55,20 @@
                 </div>
             </div>
         </nav>
-		
-		<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <li class="navbar-brand"><%= link_to "Home", root_path %><span class="sr-only"></li>
-    </div>
+
+
 	
+		<ul class="nav nav-pills">
+  
+     
+      <li><%= link_to "Home", root_path %><span class="sr-only"></li>
+       <li><%= link_to "Latest", latest_path %><span class="sr-only">(current)</span></a></li>
+       <li><%= link_to "TOP", top_path %><span class="sr-only">(current)</span></a></li>
+	  <li class="right"><%= link_to 'Search', root_path %><span class="sr-only">(current)</span></button></li>
     
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><%= link_to "Latest", latest_path %><span class="sr-only">(current)</span></a></li>
-        <li><a href="#">TOP</a></li>
-		<li class="active"><%= link_to "Posts", latest_path %><span class="sr-only">(current)</span></a></li>
 	 </ul>
-       <ul class="nav navbar-nav navbar-right">
-       <li class="right"><%= link_to 'Search', search_path %><span class="sr-only">(current)</span></button></li>
-       </ul> 
-	  
-     </div>
-  </div>
-</nav>
+      
+
 	
 	 
 

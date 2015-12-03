@@ -46,7 +46,7 @@ class PrivatePostsController < ApplicationController
   # POST /posts.json
   def create
    
-    @post = PrivatePost.new(private_post_params)
+    @post = PrivatePost.new
     
     @post.user_id = current_user.id	
 	@post.user_id_sent = params[:user_id]
@@ -106,6 +106,6 @@ class PrivatePostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def private_post_params
       params.require(:private_post).permit(:text, :user_id, :topic, :user_id_sent)
-	  params.require(:user).permit(:private)
+	  params.require(:user).!permit
     end
 end

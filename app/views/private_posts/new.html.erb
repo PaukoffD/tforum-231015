@@ -1,5 +1,5 @@
-<h1>Private message to </h1><%= @user.name %>
-   <% if !current_user.id=@user.id %>
+<h2>Private message to </h2><%= @user.name %>
+   <% if current_user.id=@user.id %>
     <%= render  :partial => 'form',  :user => @user %>
    <% else %>
     <%= render  'search' %>

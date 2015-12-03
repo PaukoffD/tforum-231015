@@ -28,6 +28,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @topic = Topic.friendly.find(params[:topic_id])
+	@user = User.find(current_user.id)
     @post = Post.new(post_params)
     @post.topic_id = @topic.id
     @post.user_id = current_user.id	
@@ -36,8 +37,8 @@ class PostsController < ApplicationController
 	if count>1
 	 @post.reply_to_id = count
     end	 
-	puts "счет " 
-	puts count
+	@user.count_message=@user.count_message+1	
+	@user.save
 	#@post.reply_to_id = current_user.id
 	@topic.last_id=current_user.id
 	@topic.save

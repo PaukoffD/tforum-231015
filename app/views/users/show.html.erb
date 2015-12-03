@@ -4,7 +4,7 @@
 	<div class="col-sm-4"><div class="left"></div>
 	 <li>Name: <%= @user.name %></li>
      <li>Registered: <%= @user.created_at %></li>
-	 <li>Posts: <%= @user.name %></li>
+	 <li>Posts: <%= @user.count_message %></li>
 	 </div>
 	<div class="col-sm-4"></div>
                 <%= image_tag(@user.avatar.url(:medium)) %>
