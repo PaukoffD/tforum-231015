@@ -1,27 +1,39 @@
+ 
+	
+<div class="container-fluid">
+   <div class="row">
+	<img src="img/header.jpg" class="img-responsive">
+   </div>
+</div>	
+	
 	
 
-<center><div class="col-sm-6"></div>
-                <%= image_tag 'orientaltea.jpg', size: '1140x200' %>
-</center>
+<!--	<section class="bg-primary" id="forum"> -->
+</br>	
+</br>
+</br>
+</br>
 
   <% @category.each do |category| %>
-    <nav class="navbar navbar-primary">
-      
-      <ul class="nav navbar-nav">
-        
-        <h4><li class="active"><%= category.name %><span class="sr-only">(current)</span></li></h4>
-		</ul>
-	  	</nav>
+    <div class="bg-info">
+       
+        <ul class="nav navbar-nav">
+        <h4><li class="info"><%= category.name %><span class="sr-only">(current)</span></li></h4>
+	     </ul>
+	  </div>
     	 
-  <table class="table  cellspacing='5'">
+  <table class="table  cellspacing='1' table-hover">
   <thead>
-    <tr>
+  <div class="bg-primary">
+    <tr class="success">
+	
 	  <th width="30%">Forum</th>
 	  <th width="49%">Post</th>
 	  <th width="7%">Topics</th>
       <th width="7%">Replies</th>
 	  <th width="7%">Views</th>
      </tr>
+  </div>	 
   </thead>
 
   
@@ -72,3 +84,4 @@
   <%= link_to 'New Forum', new_forum_path, :class => "btn btn-primary" %>
  <% end %> 
 <% end %>
+</section>

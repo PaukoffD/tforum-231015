@@ -14,8 +14,8 @@
     </div>
 <% end %>
 
- <nav class="navbar navbar-default" role="navigation">
-            <div class="container">
+ <nav class="navbar navbar-default  navbar-fixed-top">
+            <div class="container-fluid">
 
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
@@ -27,7 +27,15 @@
                     </button>
                     <%= link_to "Клуб любителей чая", root_path, class: 'navbar-brand' %>
                 </div>
-				
+			 	<ul class="nav navbar-nav navbar-left">
+  
+     
+            
+             <li><%= link_to "| Latest", latest_path %><span class="sr-only">(current)</span></a></li>
+             <li><%= link_to "TOP", top_path %><span class="sr-only">(current)</span></a></li>
+	         <li class="right"><%= link_to 'Search', search_path %><span class="sr-only">(current)</span></button></li>
+    
+	           </ul>
 				
 				
 
@@ -57,19 +65,7 @@
         </nav>
 
 
-	
-		<ul class="nav nav-pills">
-  
-     
-      <li><%= link_to "Home", root_path %><span class="sr-only"></li>
-       <li><%= link_to "Latest", latest_path %><span class="sr-only">(current)</span></a></li>
-       <li><%= link_to "TOP", top_path %><span class="sr-only">(current)</span></a></li>
-	  <li class="right"><%= link_to 'Search', root_path %><span class="sr-only">(current)</span></button></li>
-    
-	 </ul>
-      
-
-	
+		
 	 
 
           <div class="container">

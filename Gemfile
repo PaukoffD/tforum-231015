@@ -49,7 +49,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'will_paginate'
 gem 'bootstrap-sass'
-gem 'kaminari-bootstrap'
+gem 'kaminari'
 gem 'simple_form'
 gem 'redcarpet'
 gem 'rails_admin'

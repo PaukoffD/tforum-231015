@@ -1,4 +1,10 @@
-<div class="container">
+</br>
+</br>
+</br>
+</br>
+<% if user_signed_in? %>
+ <% if current_user.admin %>
+ <div class="container">
   <h2>TOOLS</h2>
   <div class="list-group">
   <div class="list-group-item">
@@ -15,3 +21,9 @@
     </div>
   </div>
 </div>
+<% else %>
+ <p class="Access denied</p>
+<% end %> 
+<% else %>
+ <h1="Access denied</h1>
+<% end %> 

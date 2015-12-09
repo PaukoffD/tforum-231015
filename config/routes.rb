@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :admins
   devise_for :users
+ # devise_for :admin
   resources :users, only: [:index, :show]
  
   resources :categories
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
 
    root 'forums#index'
    get 'latest', to: 'topics#index'
-   get 'search', to: 'topics#search'
+   get 'search', to: 'topics#index'
    get 'top', to: 'topics#top'
    get 'tools', to: 'tools#index'
    get 'forumtools', to: 'forums#tools'
