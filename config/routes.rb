@@ -23,4 +23,5 @@ Rails.application.routes.draw do
    get 'top', to: 'topics#top'
    get 'tools', to: 'tools#index'
    get 'forumtools', to: 'forums#tools'
+   get 'indextopic', to: 'topics#indextopic'
 end

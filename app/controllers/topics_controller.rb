@@ -22,8 +22,17 @@ def top
 	#@forum = Forum.find(topic.forum_id)
 	
   end
+  
+  def indextopic
+    #count = Post.where(topic_id: @topic.id).count
+    @topics = Topic.order('views_count DESC').all.page(params[:page])
+    #topic=Topic.order(:created_at).reorder('id DESC').last
+	#@forum = Forum.find(topic.forum_id)
+	
+  end
  
   def show
+  
   # @user = User.find(params[:id])
    @topic = Topic.friendly.find(params[:id])
    #@topic.posts.includes()

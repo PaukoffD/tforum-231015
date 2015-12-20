@@ -22,7 +22,7 @@ def last_topic_user
  user1 = user.name
  return user1
 end
-
+ 
 def count_post
  topic = Topic.where(forum_id:id)
  post=posts.count

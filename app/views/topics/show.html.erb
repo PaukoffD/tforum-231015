@@ -16,10 +16,10 @@
       <strong>Topic:</strong>
       <%= @topic.subject %>
      </h3>
-	
-	<%= link_to 'New Topic', new_forum_topic_path(@topic.forum_id), :class => "btn btn-primary" %> 
-	<%= link_to 'Reply', new_topic_post_path(@topic.id), :class => "btn btn-primary" %> 
-    
+	<% if user_signed_in? %>
+	 <%= link_to 'New Topic', new_forum_topic_path(@topic.forum_id), :class => "btn btn-primary" %> 
+	 <%= link_to 'Reply', new_topic_post_path(@topic.id), :class => "btn btn-primary" %> 
+    <% end %>
 	 
     <tbody>
 	
@@ -42,11 +42,18 @@
   <strong>Last post at:</strong>
   <%= post.created_at %>
 </p>
+ <% if user_signed_in? %>
     <%= link_to 'Reply', new_topic_post_path(@topic.id), :class => "btn btn-primary" %> 
+   <% if current_user.id= post.user.id %>
+    <%= current_user.id %>
+    <%= post.user.id %>
     <%= link_to 'Edit',  edit_post_path(post.id), :class => "btn btn-primary" %> 
-	
-	<%= link_to 'Delete', post_path(post.id),  :method => :delete, data: { :confirm => "are_you_sure" }, :class => "btn btn-danger" %> 	
-    <%= link_to 'Back', root_path, :class => "btn btn-primary" %>  
+   <% end %>
+	<% if current_user.admin %>
+	 <%= link_to 'Delete', post_path(post.id),  :method => :delete, data: { :confirm => "are_you_sure" }, :class => "btn btn-danger" %> 	
+    <% end %>
+	 <%= link_to 'Back', root_path, :class => "btn btn-primary" %>  
+ <% end %>
    </td>
    
 <td><h4><span class="badge"><%= @topic.views_count  %></span></a> views</h4></td>

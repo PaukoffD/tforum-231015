@@ -9,12 +9,12 @@ extend FriendlyId
 
 self.per_page = 15
 
-def last_topic_user
- topic=Topic.order(:created_at).last
- user=User.find(topic.last_id)
- user1 = user.name
- return user1
-end
+#def last_topic_user
+ #topic=Topic.order(:created_at).last
+ #user=User.find(topic.last_id)
+# user1 = user.name
+ #return user1
+#end
 
 
 end
