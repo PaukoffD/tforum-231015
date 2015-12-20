@@ -89,7 +89,12 @@ def top
 	@post.topic_id=@topic.id
 	@post.user_id = current_user.id
 	#@post.save
-	@user.count_message=@user.count_message+1	
+	if (@user.count_message!=nil)
+	  @user.count_message=@user.count_message+1		
+	 else 
+	  @user.count_message=0
+	  @user.count_message=@user.count_message+1		
+	 end 
 	@user.save
 	@topic.slug= normalize_friendly_id(@topic.subject)
 	@topic.save

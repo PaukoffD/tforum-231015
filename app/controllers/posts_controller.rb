@@ -37,7 +37,12 @@ class PostsController < ApplicationController
 	if count>1
 	 @post.reply_to_id = count
     end	 
-	@user.count_message=@user.count_message+1	
+	if (@user.count_message!=nil)
+	  @user.count_message=@user.count_message+1		
+	 else 
+	  @user.count_message=0
+	  @user.count_message=@user.count_message+1		
+	 end 
 	@user.save
 	#@post.reply_to_id = current_user.id
 	@topic.last_id=current_user.id
@@ -70,7 +75,13 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @post.destroy
+    @post=Post.find(params[:id])
+    @topic = Topic.friendly.find(@post.topic_id)
+	if @post.reply_to_id=nil
+	@topic.destroy
+	else
+     @post.destroy
+	end 
     respond_to do |format|
       format.html { redirect_to topic_path(@post.topic_id), notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
