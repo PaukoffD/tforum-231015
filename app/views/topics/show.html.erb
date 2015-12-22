@@ -43,11 +43,13 @@
   <%= post.created_at %>
 </p>
  <% if user_signed_in? %>
+   
     <%= link_to 'Reply', new_topic_post_path(@topic.id), :class => "btn btn-primary" %> 
-   <% if current_user.id= post.user.id %>
-    <%= current_user.id %>
-    <%= post.user.id %>
-    <%= link_to 'Edit',  edit_post_path(post.id), :class => "btn btn-primary" %> 
+	
+   <% if (current_user.id!=post.user.id) %>
+    
+	<% else %>
+     <%= link_to 'Edit',  edit_post_path(post.id), :class => "btn btn-primary" %> 
    <% end %>
 	<% if current_user.admin %>
 	 <%= link_to 'Delete', post_path(post.id),  :method => :delete, data: { :confirm => "are_you_sure" }, :class => "btn btn-danger" %> 	
