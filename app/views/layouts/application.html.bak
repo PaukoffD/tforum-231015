@@ -6,7 +6,6 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-
 <body>
 <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %> alert-dismissable">
@@ -15,29 +14,34 @@
     </div>
 <% end %>
 
+ <nav class="navbar navbar-default  navbar-fixed-top">
+            <div class="container-fluid">
 
-
-<nav role="navigation" class="navbar navbar-default">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <%= link_to "Клуб любителей чая", root_path, class: 'navbar-brand' %>
-  </div>
-  <!-- Collection of nav links, forms, and other content for toggling -->
-  <div id="navbarCollapse" class="collapse navbar-collapse">
-    <ul class="nav navbar-nav">
-       <li><%= link_to " Latest", latest_path %><span class="sr-only">(current)</span></a></li>
-       <li><%= link_to "TOP", top_path %><span class="sr-only">(current)</span></a></li>
-	   <li class="right"><%= link_to 'Search', search_path %><span class="sr-only">(current)</span></button></li>
-     </ul>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+						
+                    </button>
+                    <%= link_to "Клуб любителей чая", root_path, class: 'navbar-brand' %>
+                </div>
+			 	<ul class="nav navbar-nav navbar-left">
+  
+     
+            
+             <li><%= link_to "| Latest", latest_path %><span class="sr-only">(current)</span></a></li>
+             <li><%= link_to "TOP", top_path %><span class="sr-only">(current)</span></a></li>
+	         <li class="right"><%= link_to 'Search', search_path %><span class="sr-only">(current)</span></button></li>
     
-   
-    <ul class="nav navbar-nav navbar-right">
+	           </ul>
+				
+				
+
+               
+
+                    <ul class="nav navbar-nav navbar-right">
                          
                          <% if user_signed_in? %>
 						    <li><%= link_to 'Members', users_path %></li>
@@ -59,18 +63,6 @@
                 </div>
             </div>
         </nav>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 		
