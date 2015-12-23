@@ -1,5 +1,49 @@
 
 ---
+admins:
+  columns:
+  - id
+  - email
+  - encrypted_password
+  - reset_password_token
+  - reset_password_sent_at
+  - remember_created_at
+  - sign_in_count
+  - current_sign_in_at
+  - last_sign_in_at
+  - current_sign_in_ip
+  - last_sign_in_ip
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - paukoffru@yandex.ru
+    - "$2a$10$w0VfnBOsGnrDD59ADv1UAuxCmYS6wR4rs9yNMifjzv3LZoHG7sc0K"
+    - 
+    - 
+    - 
+    - 1
+    - '2015-12-22 19:12:27.097951'
+    - '2015-12-22 19:12:27.097951'
+    - "::1"
+    - ''
+    - '2015-12-22 19:06:29.844329'
+    - '2015-12-22 19:12:27.103955'
+  - - 2
+    - drodeo67@mail.ru
+    - "$2a$10$iTqHKmBF1IfCabm3/GDsQewK.NNtLBNi/i9evzOyFjgTRi2Q25YS2"
+    - 
+    - 
+    - 
+    - 0
+    - 
+    - 
+    - ''
+    - ''
+    - '2015-12-22 19:07:22.647815'
+    - '2015-12-22 19:07:22.647815'
+
+---
 categories:
   columns:
   - id
@@ -117,6 +161,1235 @@ posts:
     - pending_review
     - false
     - 
+  - - 198
+    - 150
+    - "<p>Чем именно является адаптивный дизайн (он же реагирующий и отзывчивый, &mdash;
+      <strong>responsive web-design</strong>) и как создать адаптивный веб-сайт? В
+      этом уроке объясняется концепция, а так же подробно показан процесс создания
+      шаблона адаптивного веб-сайта.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"
+      \" class=\"aligncenter\" src=\"http://naikom.ru/img/2012/allaboutresponsive/null.jpg\"
+      title=\"Раскрытие тайны адаптивного веб дизайна\" /></p>\r\n\r\n<p>Адаптивный
+      веб-дизайн является горячей темой в наши дни, тем более что сайты должны адаптироваться
+      к растущему числу мобильных устройств с их относительно небольшими экранами.
+      Многие дизайнеры и разработчики хотят создавать новые сайты с использованием
+      шаблона, основанного на быстром реагировании, или изменить существующие сайты,
+      чтобы включить в них элементы быстрого реагирования.<br />\r\nТем не менее,
+      с первого взгляда вся эта тема может вызвать недоумение. Адаптивный дизайн является
+      относительно новой идеей, которая быстро развивается. В ней довольно много запутанных
+      терминов, таких как реагирующие шаблоны, адаптивные шаблоны, media queries и
+      viewport&rsquo;ы. С чего начать?<br />\r\nВ этой статье вы получите короткое
+      введение в мир адаптивнаго веб-дизайна. В&hellip;:</p>\r\n\r\n<ul>\r\n\t<li>Узнаете,
+      чем именно является адаптивный дизайн и почему это полезно</li>\r\n\t<li>Посмотрите
+      на разницу между терминами &laquo;реагирующий шаблон&raquo; и &laquo;адаптивный
+      шаблон&raquo;</li>\r\n\t<li>Возьмете существующий изменяющийся шаблон и превратите
+      его в адаптивный шаблон, который будет хорошо смотреться на всех экранах, начиная
+      от экрана мобильного телефона и заканчивая широкоформатным рабочим столом</li>\r\n\t<li>Посмотрите,
+      как media queries и мета тег viewport могут помочь вам построить адаптивные
+      шаблоны.</li>\r\n</ul>\r\n\r\n<p>Готовы исследовать мир адаптивного дизайна?
+      Поехали!</p>\r\n\r\n<h3>Адаптивный дизайн в двух словах</h3>\r\n\r\n<p>Основная
+      идея адаптивного веб-дизайна состоит в том, что сайт должен &laquo;реагировать&raquo;
+      на устройство, на котором его просматривают. В более широком плане это может
+      означать следующее:</p>\r\n\r\n<ul>\r\n\t<li><strong>Адаптация шаблона в соответствии
+      с различными размерами экранов</strong>, начиная от широкоэкранных настольных
+      компьютеров до крошечных телефонов</li>\r\n\t<li><strong>Изменение размеров
+      изображения</strong> в соответствии с разрешением экрана</li>\r\n\t<li><strong>Обслуживание
+      низкоскоростных изображений</strong> на мобильных устройствах</li>\r\n\t<li><strong>Упрощение
+      элементов страницы</strong> для использования в мобильных устройствах</li>\r\n\t<li><strong>Скрытие
+      несущественных элементов </strong>на небольших экранах</li>\r\n\t<li><strong>Предоставление
+      больших по размеру и удобных для нажатия пальцами ссылок</strong> и кнопок для
+      мобильных пользователей</li>\r\n\t<li><strong>Выявление и реагирование на мобильные
+      функции</strong>, такие как геолокация и ориентация устройства.</li>\r\n</ul>\r\n\r\n<p>Однако,
+      в большинстве случаев, когда люди говорят о &laquo;адаптивном веб-дизайне&raquo;,
+      они имеют в виду главным образом первую из этих позиций: создание реагирующего
+      шаблона, который сможет легко приспосабливаться к различным размерам экрана.
+      На этом и будет сфокусирована данная статья.<br />\r\nВ настоящее время большинство
+      веб-сайтов предназначены для просмотра в браузерах настольных компьютеров с
+      окном около 1000px в ширину. Если окно вашего браузера значительно меньше этого
+      размера, то содержание страницы или выглядит сдавленным, или у вас появляется
+      горизонтальная полоса прокрутки. Аналогичным образом, если вы выводите ваш браузер
+      на широкоформатный экран, то содержание часто выглядит слишком растянуто по
+      горизонтали, или появляется излишнее количество белого пространства на странице.<br
+      />\r\nНапример, посмотрите текущую схему <a href=\"https://www.elated.com/\">elated.com</a>
+      на различных размерах браузера:</p>\r\n\r\n<p><img alt=\" \" class=\"aligncenter\"
+      src=\"http://naikom.ru/img/2012/allaboutresponsive/1.jpg\" title=\"Раскрытие
+      тайны адаптивного веб дизайна\" /></p>\r\n\r\n<p><strong>elated.com был предназначен
+      для работы с окнами браузера, которые составляют около 1000 пикселей в ширину.</strong></p>\r\n\r\n<p><img
+      alt=\" \" class=\"aligncenter\" src=\"http://naikom.ru/img/2012/allaboutresponsive/2.jpg\"
+      title=\"Раскрытие тайны адаптивного веб дизайна\" /></p>\r\n\r\n<p><strong>При
+      ширине окна в 800px содержание страницы оказывается шире, чем окно, и вы получаете
+      горизонтальную полосу прокрутки.</strong></p>\r\n\r\n<p><img alt=\" \" class=\"aligncenter\"
+      src=\"http://naikom.ru/img/2012/allaboutresponsive/3.jpg\" title=\"Раскрытие
+      тайны адаптивного веб дизайна\" /></p>\r\n\r\n<p><strong>При ширине окна в 1600px
+      появляется много неиспользуемого пространства по обе стороны шаблона.</strong></p>\r\n\r\n<p>elated.com
+      представляет собой шаблон фиксированной ширины. Можно несколько улучшить ситуацию
+      с помощью шаблона с изменяющейся шириной (&laquo;резина&raquo;), где столбцы
+      и элементы шаблона меняют свой размер пропорционально ширине браузера. Даже
+      при этом, шаблон с изменяющейся шириной перестает справляться с задачей при
+      очень малой или очень большой ширине экрана.<br />\r\nТак как сегодня используется
+      много разных размеров экрана и ширины браузера, то веб-дизайнерам очень трудно
+      удовлетворить всех пользователей, использующих традиционную технику.<br />\r\nМобильные
+      браузеры с их крошечными экранами между 320 и 768 пикселями в ширину делают
+      ситуацию только хуже. Большинство современных мобильных устройств до некоторой
+      степени позволяют обходить ограничения с помощью масштабирования и панорамирования
+      веб-страниц при помощи пальцев. Однако нельзя уйти от факта, что просмотр традиционной
+      веб-страницы, предназначенной для рабочего стола, на мобильном браузере является
+      малоприятным делом.<br />\r\nВы можете решить эту проблему путем создания двух
+      веб-сайтов &mdash; один для настольных компьютеров и один для мобильных устройств
+      &mdash; но тогда вам потребуется дополнительное время на разработку, а также
+      вам придется поддерживать два набора шаблонов для вашего сайта.<br />\r\nЭто
+      объясняет, почему разработка адаптивного веб-дизайна является очень важным вопросом.
+      При создании реагирующего дизайна вам нужно создать только одну версию вашего
+      веб-сайта, которая будет прекрасно работать на всех устройствах, начиная от
+      крошечных мобильных и заканчивая широкоэкранными компьютерами. Сайт реагирует
+      по мере того, как изменяется экран или браузер, становится шире или уже, адаптируя
+      свой шаблон соответствующим образом.</p>\r\n\r\n<h3>Реагирующий или адаптивный?</h3>\r\n\r\n<p>Возможно,
+      вы слышали оба термина &laquo;реагирующий веб-дизайн&raquo; и &laquo;адаптивный
+      веб-дизайн&raquo;, используемые для описания веб-сайтов, которые адаптируются
+      к различным размерам экрана. В чем разница?<br />\r\nПо сути, оба эти термина
+      описывают одну основную идею: шаблон сайта должен изменяться в зависимости от
+      устройства, на котором он просматривается. Гарри Робертс (<a href=\"http://csswizardry.com/2011/01/forget-responsive-web-design/\">Harry
+      Roberts</a>) и Пол Гордон (<a href=\"http://pgdev.posterous.com/adaptive-or-responsive-design\">Paul
+      Gordon</a>) оба в своих статьях говорят о том, что лучшим термином для описания
+      такого шаблона является &laquo;адаптивный&raquo;, так как веб-сайт действительно
+      адаптируется к устройству, а не непрерывно реагирует на изменения в окружающей
+      среде.<br />\r\nГарри развивает эту точку зрения дальше, и предполагает, что
+      сайты должны просто адаптировать свои шаблоны к небольшому и определенному набору
+      размеров экрана, а не реагировать в непрерывном режиме на изменения пользователем
+      его браузера пиксель за пикселем. Идея в том, что такой &laquo;адаптивный&raquo;
+      дизайн проще построить, чем реагирующий дизайн.<br />\r\nТак что разница между
+      этими двумя терминами довольно трудноуловима. Но большинству российских дизайнеров
+      и разработчиков, кажется, больше нравится термин &laquo;адаптивный&raquo;, по
+      крайней мере, так было на момент написания статьи. Выбор за вами!</p>\r\n\r\n<h3>Пример
+      не адаптивного шаблона</h3>\r\n\r\n<p>Так, давайте применим всю эту теорию к
+      практике и построим адаптивный шаблон. Мы начнем с довольно стандартного изменяющегося
+      шаблона. Вот простенькая HTML5-разметка:</p>\r\n\r\n<div>\r\n<div class=\"syntaxhighlighter
+      \ xml\" id=\"highlighter_647180\">\r\n<table border=\"0\" cellpadding=\"0\"
+      cellspacing=\"0\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td class=\"gutter\">\r\n\t\t\t<div
+      class=\"line number1 index0 alt2\">1</div>\r\n\r\n\t\t\t<div class=\"line number2
+      index1 alt1\">2</div>\r\n\r\n\t\t\t<div class=\"line number3 index2 alt2\">3</div>\r\n\r\n\t\t\t<div
+      class=\"line number4 index3 alt1\">4</div>\r\n\r\n\t\t\t<div class=\"line number5
+      index4 alt2\">5</div>\r\n\r\n\t\t\t<div class=\"line number6 index5 alt1\">6</div>\r\n\r\n\t\t\t<div
+      class=\"line number7 index6 alt2\">7</div>\r\n\r\n\t\t\t<div class=\"line number8
+      index7 alt1\">8</div>\r\n\r\n\t\t\t<div class=\"line number9 index8 alt2\">9</div>\r\n\r\n\t\t\t<div
+      class=\"line number10 index9 alt1\">10</div>\r\n\r\n\t\t\t<div class=\"line
+      number11 index10 alt2\">11</div>\r\n\r\n\t\t\t<div class=\"line number12 index11
+      alt1\">12</div>\r\n\r\n\t\t\t<div class=\"line number13 index12 alt2\">13</div>\r\n\r\n\t\t\t<div
+      class=\"line number14 index13 alt1\">14</div>\r\n\r\n\t\t\t<div class=\"line
+      number15 index14 alt2\">15</div>\r\n\r\n\t\t\t<div class=\"line number16 index15
+      alt1\">16</div>\r\n\r\n\t\t\t<div class=\"line number17 index16 alt2\">17</div>\r\n\r\n\t\t\t<div
+      class=\"line number18 index17 alt1\">18</div>\r\n\r\n\t\t\t<div class=\"line
+      number19 index18 alt2\">19</div>\r\n\r\n\t\t\t<div class=\"line number20 index19
+      alt1\">20</div>\r\n\r\n\t\t\t<div class=\"line number21 index20 alt2\">21</div>\r\n\r\n\t\t\t<div
+      class=\"line number22 index21 alt1\">22</div>\r\n\r\n\t\t\t<div class=\"line
+      number23 index22 alt2\">23</div>\r\n\r\n\t\t\t<div class=\"line number24 index23
+      alt1\">24</div>\r\n\r\n\t\t\t<div class=\"line number25 index24 alt2\">25</div>\r\n\r\n\t\t\t<div
+      class=\"line number26 index25 alt1\">26</div>\r\n\r\n\t\t\t<div class=\"line
+      number27 index26 alt2\">27</div>\r\n\r\n\t\t\t<div class=\"line number28 index27
+      alt1\">28</div>\r\n\r\n\t\t\t<div class=\"line number29 index28 alt2\">29</div>\r\n\r\n\t\t\t<div
+      class=\"line number30 index29 alt1\">30</div>\r\n\r\n\t\t\t<div class=\"line
+      number31 index30 alt2\">31</div>\r\n\r\n\t\t\t<div class=\"line number32 index31
+      alt1\">32</div>\r\n\r\n\t\t\t<div class=\"line number33 index32 alt2\">33</div>\r\n\r\n\t\t\t<div
+      class=\"line number34 index33 alt1\">34</div>\r\n\r\n\t\t\t<div class=\"line
+      number35 index34 alt2\">35</div>\r\n\r\n\t\t\t<div class=\"line number36 index35
+      alt1\">36</div>\r\n\r\n\t\t\t<div class=\"line number37 index36 alt2\">37</div>\r\n\r\n\t\t\t<div
+      class=\"line number38 index37 alt1\">38</div>\r\n\r\n\t\t\t<div class=\"line
+      number39 index38 alt2\">39</div>\r\n\r\n\t\t\t<div class=\"line number40 index39
+      alt1\">40</div>\r\n\r\n\t\t\t<div class=\"line number41 index40 alt2\">41</div>\r\n\r\n\t\t\t<div
+      class=\"line number42 index41 alt1\">42</div>\r\n\r\n\t\t\t<div class=\"line
+      number43 index42 alt2\">43</div>\r\n\r\n\t\t\t<div class=\"line number44 index43
+      alt1\">44</div>\r\n\r\n\t\t\t<div class=\"line number45 index44 alt2\">45</div>\r\n\r\n\t\t\t<div
+      class=\"line number46 index45 alt1\">46</div>\r\n\r\n\t\t\t<div class=\"line
+      number47 index46 alt2\">47</div>\r\n\r\n\t\t\t<div class=\"line number48 index47
+      alt1\">48</div>\r\n\r\n\t\t\t<div class=\"line number49 index48 alt2\">49</div>\r\n\r\n\t\t\t<div
+      class=\"line number50 index49 alt1\">50</div>\r\n\r\n\t\t\t<div class=\"line
+      number51 index50 alt2\">51</div>\r\n\r\n\t\t\t<div class=\"line number52 index51
+      alt1\">52</div>\r\n\r\n\t\t\t<div class=\"line number53 index52 alt2\">53</div>\r\n\r\n\t\t\t<div
+      class=\"line number54 index53 alt1\">54</div>\r\n\r\n\t\t\t<div class=\"line
+      number55 index54 alt2\">55</div>\r\n\r\n\t\t\t<div class=\"line number56 index55
+      alt1\">56</div>\r\n\r\n\t\t\t<div class=\"line number57 index56 alt2\">57</div>\r\n\r\n\t\t\t<div
+      class=\"line number58 index57 alt1\">58</div>\r\n\r\n\t\t\t<div class=\"line
+      number59 index58 alt2\">59</div>\r\n\r\n\t\t\t<div class=\"line number60 index59
+      alt1\">60</div>\r\n\r\n\t\t\t<div class=\"line number61 index60 alt2\">61</div>\r\n\t\t\t</td>\r\n\t\t\t<td
+      class=\"code\">\r\n\t\t\t<div class=\"container\">\r\n\t\t\t<div class=\"line
+      number1 index0 alt2\"><code class=\"xml plain\">&lt;!doctype html&gt;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number2 index1 alt1\"><code class=\"xml plain\">&lt;</code><code
+      class=\"xml keyword\">html</code><code class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number3 index2 alt2\"><code class=\"xml plain\">&lt;</code><code
+      class=\"xml keyword\">head</code><code class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number4 index3 alt1\"><code class=\"xml spaces\">&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">title</code><code
+      class=\"xml plain\">&gt;A Fluid Layout&lt;/</code><code class=\"xml keyword\">title</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number5
+      index4 alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;</code><code class=\"xml
+      plain\">&lt;</code><code class=\"xml keyword\">link</code> <code class=\"xml
+      color1\">rel</code><code class=\"xml plain\">=</code><code class=\"xml string\">&quot;stylesheet&quot;</code>
+      <code class=\"xml color1\">href</code><code class=\"xml plain\">=</code><code
+      class=\"xml string\">&quot;main.css&quot;</code> <code class=\"xml plain\">/&gt;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number6 index5 alt1\"><code class=\"xml plain\">&lt;/</code><code
+      class=\"xml keyword\">head</code><code class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number7 index6 alt2\"><code class=\"xml plain\">&lt;</code><code
+      class=\"xml keyword\">body</code><code class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number8 index7 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number9 index8 alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;</code><code class=\"xml
+      plain\">&lt;</code><code class=\"xml keyword\">div</code> <code class=\"xml
+      color1\">id</code><code class=\"xml plain\">=</code><code class=\"xml string\">&quot;header&quot;</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number10
+      index9 alt1\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">div</code> <code
+      class=\"xml color1\">class</code><code class=\"xml plain\">=</code><code class=\"xml
+      string\">&quot;inner&quot;</code><code class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number11 index10 alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">h2</code><code class=\"xml
+      plain\">&gt;Header&lt;/</code><code class=\"xml keyword\">h2</code><code class=\"xml
+      plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number12 index11 alt1\"><code
+      class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class=\"xml plain\">&lt;/</code><code
+      class=\"xml keyword\">div</code><code class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number13 index12 alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;/</code><code class=\"xml keyword\">div</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number14
+      index13 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line number15 index14
+      alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;</code><code class=\"xml plain\">&lt;</code><code
+      class=\"xml keyword\">div</code> <code class=\"xml color1\">id</code><code class=\"xml
+      plain\">=</code><code class=\"xml string\">&quot;pageBody&quot;</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number16
+      index15 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line number17 index16
+      alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class=\"xml
+      plain\">&lt;</code><code class=\"xml keyword\">div</code> <code class=\"xml
+      color1\">id</code><code class=\"xml plain\">=</code><code class=\"xml string\">&quot;nav&quot;</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number18
+      index17 alt1\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">ul</code><code class=\"xml
+      plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number19 index18 alt2\"><code
+      class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">li</code><code class=\"xml
+      plain\">&gt;&lt;</code><code class=\"xml keyword\">a</code> <code class=\"xml
+      color1\">href</code><code class=\"xml plain\">=</code><code class=\"xml string\">&quot;#&quot;</code><code
+      class=\"xml plain\">&gt;Home&lt;/</code><code class=\"xml keyword\">a</code><code
+      class=\"xml plain\">&gt;&lt;/</code><code class=\"xml keyword\">li</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number20
+      index19 alt1\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">li</code><code class=\"xml
+      plain\">&gt;&lt;</code><code class=\"xml keyword\">a</code> <code class=\"xml
+      color1\">href</code><code class=\"xml plain\">=</code><code class=\"xml string\">&quot;#&quot;</code><code
+      class=\"xml plain\">&gt;About&lt;/</code><code class=\"xml keyword\">a</code><code
+      class=\"xml plain\">&gt;&lt;/</code><code class=\"xml keyword\">li</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number21
+      index20 alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">li</code><code class=\"xml
+      plain\">&gt;&lt;</code><code class=\"xml keyword\">a</code> <code class=\"xml
+      color1\">href</code><code class=\"xml plain\">=</code><code class=\"xml string\">&quot;#&quot;</code><code
+      class=\"xml plain\">&gt;Store&lt;/</code><code class=\"xml keyword\">a</code><code
+      class=\"xml plain\">&gt;&lt;/</code><code class=\"xml keyword\">li</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number22
+      index21 alt1\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">li</code><code class=\"xml
+      plain\">&gt;&lt;</code><code class=\"xml keyword\">a</code> <code class=\"xml
+      color1\">href</code><code class=\"xml plain\">=</code><code class=\"xml string\">&quot;#&quot;</code><code
+      class=\"xml plain\">&gt;Friends&lt;/</code><code class=\"xml keyword\">a</code><code
+      class=\"xml plain\">&gt;&lt;/</code><code class=\"xml keyword\">li</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number23
+      index22 alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;/</code><code class=\"xml keyword\">ul</code><code class=\"xml
+      plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number24 index23 alt1\"><code
+      class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class=\"xml plain\">&lt;/</code><code
+      class=\"xml keyword\">div</code><code class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number25 index24 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number26 index25 alt1\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">div</code> <code
+      class=\"xml color1\">id</code><code class=\"xml plain\">=</code><code class=\"xml
+      string\">&quot;content&quot;</code><code class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number27 index26 alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">div</code> <code
+      class=\"xml color1\">class</code><code class=\"xml plain\">=</code><code class=\"xml
+      string\">&quot;inner&quot;</code><code class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number28 index27 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number29 index28 alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">h1</code><code class=\"xml
+      plain\">&gt;Fluid Layout&lt;/</code><code class=\"xml keyword\">h1</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number30
+      index29 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line number31 index30
+      alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">p</code><code class=\"xml
+      plain\">&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+      dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+      sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor
+      sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+      ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+      in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+      mollit anim id est laborum.&lt;/</code><code class=\"xml keyword\">p</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number32
+      index31 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line number33 index32
+      alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">p</code><code class=\"xml
+      plain\">&gt;Curabitur et leo dui, eu semper tellus. Vivamus aliquam, mi ultrices
+      fringilla varius, augue nisl tincidunt elit, eu tincidunt ante metus ac mauris.
+      Praesent congue blandit nunc, eu facilisis ligula faucibus sit amet. Proin eget
+      turpis nulla. Phasellus mattis nisi a ante aliquet posuere. Vestibulum tortor
+      quam, luctus imperdiet venenatis nec, molestie eu massa. Vivamus nec ipsum viverra
+      augue aliquet bibendum. Morbi ac felis purus, sed vehicula mauris. Integer tempor
+      mollis libero id hendrerit. Fusce sit amet urna quis justo varius pulvinar dapibus
+      sed metus.</code></div>\r\n\r\n\t\t\t<div class=\"line number34 index33 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div
+      class=\"line number35 index34 alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">p</code><code class=\"xml
+      plain\">&gt;Ut vel mauris eu velit fringilla lobortis. Phasellus accumsan sem
+      in nisl luctus gravida. Vestibulum vitae scelerisque eros. Nullam id leo erat,
+      et congue elit. Nunc volutpat justo tempor magna pretium adipiscing. Vivamus
+      eget massa odio. Suspendisse potenti. Aliquam erat volutpat. Proin faucibus
+      leo vel sem lobortis sed hendrerit diam suscipit. Maecenas dignissim, neque
+      sit amet tristique pulvinar, ipsum orci porttitor odio, ac auctor nunc mauris
+      ac nisi. Sed vitae dui et urna mollis elementum et id purus. Suspendisse bibendum
+      quam id lacus condimentum ut pharetra orci mollis. Curabitur et consequat nisi.
+      Suspendisse dictum luctus neque, id tincidunt justo rutrum non. Aenean fringilla
+      quam ac magna ornare vehicula.&lt;/</code><code class=\"xml keyword\">p</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number36
+      index35 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line number37 index36
+      alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;/</code><code class=\"xml keyword\">div</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number38
+      index37 alt1\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;/</code><code class=\"xml keyword\">div</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number39
+      index38 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line number40 index39
+      alt1\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class=\"xml
+      plain\">&lt;</code><code class=\"xml keyword\">div</code> <code class=\"xml
+      color1\">id</code><code class=\"xml plain\">=</code><code class=\"xml string\">&quot;sidebar&quot;</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number41
+      index40 alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">div</code> <code
+      class=\"xml color1\">class</code><code class=\"xml plain\">=</code><code class=\"xml
+      string\">&quot;inner&quot;</code><code class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number42 index41 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number43 index42 alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">h2</code><code class=\"xml
+      plain\">&gt;About Us&lt;/</code><code class=\"xml keyword\">h2</code><code class=\"xml
+      plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number44 index43 alt1\"><code
+      class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">p</code><code class=\"xml
+      plain\">&gt;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+      dolore eu fugiat nulla pariatur. Morbi ac felis purus, sed vehicula mauris.&lt;/</code><code
+      class=\"xml keyword\">p</code><code class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number45 index44 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number46 index45 alt1\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">h2</code><code class=\"xml
+      plain\">&gt;Contact Us&lt;/</code><code class=\"xml keyword\">h2</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number47
+      index46 alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">p</code><code class=\"xml
+      plain\">&gt;Morbi ac felis purus, sed vehicula mauris.&lt;/</code><code class=\"xml
+      keyword\">p</code><code class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number48 index47 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number49 index48 alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;/</code><code class=\"xml keyword\">div</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number50
+      index49 alt1\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;/</code><code class=\"xml keyword\">div</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number51
+      index50 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line number52 index51
+      alt1\"><code class=\"xml spaces\">&nbsp;&nbsp;</code><code class=\"xml plain\">&lt;/</code><code
+      class=\"xml keyword\">div</code><code class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number53 index52 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number54 index53 alt1\"><code class=\"xml spaces\">&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">div</code> <code
+      class=\"xml color1\">id</code><code class=\"xml plain\">=</code><code class=\"xml
+      string\">&quot;footer&quot;</code><code class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number55 index54 alt2\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">div</code> <code
+      class=\"xml color1\">class</code><code class=\"xml plain\">=</code><code class=\"xml
+      string\">&quot;inner&quot;</code><code class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number56 index55 alt1\"><code class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">h3</code><code class=\"xml
+      plain\">&gt;Footer&lt;/</code><code class=\"xml keyword\">h3</code><code class=\"xml
+      plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number57 index56 alt2\"><code
+      class=\"xml spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class=\"xml plain\">&lt;/</code><code
+      class=\"xml keyword\">div</code><code class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number58 index57 alt1\"><code class=\"xml spaces\">&nbsp;&nbsp;</code><code
+      class=\"xml plain\">&lt;/</code><code class=\"xml keyword\">div</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number59
+      index58 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line number60 index59
+      alt1\"><code class=\"xml plain\">&lt;/</code><code class=\"xml keyword\">body</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\r\n\t\t\t<div class=\"line number61
+      index60 alt2\"><code class=\"xml plain\">&lt;/</code><code class=\"xml keyword\">html</code><code
+      class=\"xml plain\">&gt;</code></div>\r\n\t\t\t</div>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n\r\n<p>А
+      вот файл CSS, main.css:</p>\r\n\r\n<div>\r\n<div class=\"syntaxhighlighter  css\"
+      id=\"highlighter_482751\">\r\n<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td
+      class=\"gutter\">\r\n\t\t\t<div class=\"line number1 index0 alt2\">1</div>\r\n\r\n\t\t\t<div
+      class=\"line number2 index1 alt1\">2</div>\r\n\r\n\t\t\t<div class=\"line number3
+      index2 alt2\">3</div>\r\n\r\n\t\t\t<div class=\"line number4 index3 alt1\">4</div>\r\n\r\n\t\t\t<div
+      class=\"line number5 index4 alt2\">5</div>\r\n\r\n\t\t\t<div class=\"line number6
+      index5 alt1\">6</div>\r\n\r\n\t\t\t<div class=\"line number7 index6 alt2\">7</div>\r\n\r\n\t\t\t<div
+      class=\"line number8 index7 alt1\">8</div>\r\n\r\n\t\t\t<div class=\"line number9
+      index8 alt2\">9</div>\r\n\r\n\t\t\t<div class=\"line number10 index9 alt1\">10</div>\r\n\r\n\t\t\t<div
+      class=\"line number11 index10 alt2\">11</div>\r\n\r\n\t\t\t<div class=\"line
+      number12 index11 alt1\">12</div>\r\n\r\n\t\t\t<div class=\"line number13 index12
+      alt2\">13</div>\r\n\r\n\t\t\t<div class=\"line number14 index13 alt1\">14</div>\r\n\r\n\t\t\t<div
+      class=\"line number15 index14 alt2\">15</div>\r\n\r\n\t\t\t<div class=\"line
+      number16 index15 alt1\">16</div>\r\n\r\n\t\t\t<div class=\"line number17 index16
+      alt2\">17</div>\r\n\r\n\t\t\t<div class=\"line number18 index17 alt1\">18</div>\r\n\r\n\t\t\t<div
+      class=\"line number19 index18 alt2\">19</div>\r\n\r\n\t\t\t<div class=\"line
+      number20 index19 alt1\">20</div>\r\n\r\n\t\t\t<div class=\"line number21 index20
+      alt2\">21</div>\r\n\r\n\t\t\t<div class=\"line number22 index21 alt1\">22</div>\r\n\r\n\t\t\t<div
+      class=\"line number23 index22 alt2\">23</div>\r\n\r\n\t\t\t<div class=\"line
+      number24 index23 alt1\">24</div>\r\n\r\n\t\t\t<div class=\"line number25 index24
+      alt2\">25</div>\r\n\r\n\t\t\t<div class=\"line number26 index25 alt1\">26</div>\r\n\r\n\t\t\t<div
+      class=\"line number27 index26 alt2\">27</div>\r\n\r\n\t\t\t<div class=\"line
+      number28 index27 alt1\">28</div>\r\n\r\n\t\t\t<div class=\"line number29 index28
+      alt2\">29</div>\r\n\r\n\t\t\t<div class=\"line number30 index29 alt1\">30</div>\r\n\r\n\t\t\t<div
+      class=\"line number31 index30 alt2\">31</div>\r\n\r\n\t\t\t<div class=\"line
+      number32 index31 alt1\">32</div>\r\n\r\n\t\t\t<div class=\"line number33 index32
+      alt2\">33</div>\r\n\r\n\t\t\t<div class=\"line number34 index33 alt1\">34</div>\r\n\r\n\t\t\t<div
+      class=\"line number35 index34 alt2\">35</div>\r\n\r\n\t\t\t<div class=\"line
+      number36 index35 alt1\">36</div>\r\n\r\n\t\t\t<div class=\"line number37 index36
+      alt2\">37</div>\r\n\r\n\t\t\t<div class=\"line number38 index37 alt1\">38</div>\r\n\r\n\t\t\t<div
+      class=\"line number39 index38 alt2\">39</div>\r\n\r\n\t\t\t<div class=\"line
+      number40 index39 alt1\">40</div>\r\n\r\n\t\t\t<div class=\"line number41 index40
+      alt2\">41</div>\r\n\r\n\t\t\t<div class=\"line number42 index41 alt1\">42</div>\r\n\r\n\t\t\t<div
+      class=\"line number43 index42 alt2\">43</div>\r\n\r\n\t\t\t<div class=\"line
+      number44 index43 alt1\">44</div>\r\n\r\n\t\t\t<div class=\"line number45 index44
+      alt2\">45</div>\r\n\r\n\t\t\t<div class=\"line number46 index45 alt1\">46</div>\r\n\r\n\t\t\t<div
+      class=\"line number47 index46 alt2\">47</div>\r\n\r\n\t\t\t<div class=\"line
+      number48 index47 alt1\">48</div>\r\n\r\n\t\t\t<div class=\"line number49 index48
+      alt2\">49</div>\r\n\r\n\t\t\t<div class=\"line number50 index49 alt1\">50</div>\r\n\r\n\t\t\t<div
+      class=\"line number51 index50 alt2\">51</div>\r\n\r\n\t\t\t<div class=\"line
+      number52 index51 alt1\">52</div>\r\n\r\n\t\t\t<div class=\"line number53 index52
+      alt2\">53</div>\r\n\r\n\t\t\t<div class=\"line number54 index53 alt1\">54</div>\r\n\r\n\t\t\t<div
+      class=\"line number55 index54 alt2\">55</div>\r\n\r\n\t\t\t<div class=\"line
+      number56 index55 alt1\">56</div>\r\n\r\n\t\t\t<div class=\"line number57 index56
+      alt2\">57</div>\r\n\r\n\t\t\t<div class=\"line number58 index57 alt1\">58</div>\r\n\r\n\t\t\t<div
+      class=\"line number59 index58 alt2\">59</div>\r\n\r\n\t\t\t<div class=\"line
+      number60 index59 alt1\">60</div>\r\n\r\n\t\t\t<div class=\"line number61 index60
+      alt2\">61</div>\r\n\r\n\t\t\t<div class=\"line number62 index61 alt1\">62</div>\r\n\r\n\t\t\t<div
+      class=\"line number63 index62 alt2\">63</div>\r\n\r\n\t\t\t<div class=\"line
+      number64 index63 alt1\">64</div>\r\n\r\n\t\t\t<div class=\"line number65 index64
+      alt2\">65</div>\r\n\r\n\t\t\t<div class=\"line number66 index65 alt1\">66</div>\r\n\r\n\t\t\t<div
+      class=\"line number67 index66 alt2\">67</div>\r\n\r\n\t\t\t<div class=\"line
+      number68 index67 alt1\">68</div>\r\n\r\n\t\t\t<div class=\"line number69 index68
+      alt2\">69</div>\r\n\r\n\t\t\t<div class=\"line number70 index69 alt1\">70</div>\r\n\r\n\t\t\t<div
+      class=\"line number71 index70 alt2\">71</div>\r\n\r\n\t\t\t<div class=\"line
+      number72 index71 alt1\">72</div>\r\n\r\n\t\t\t<div class=\"line number73 index72
+      alt2\">73</div>\r\n\r\n\t\t\t<div class=\"line number74 index73 alt1\">74</div>\r\n\r\n\t\t\t<div
+      class=\"line number75 index74 alt2\">75</div>\r\n\r\n\t\t\t<div class=\"line
+      number76 index75 alt1\">76</div>\r\n\r\n\t\t\t<div class=\"line number77 index76
+      alt2\">77</div>\r\n\r\n\t\t\t<div class=\"line number78 index77 alt1\">78</div>\r\n\r\n\t\t\t<div
+      class=\"line number79 index78 alt2\">79</div>\r\n\r\n\t\t\t<div class=\"line
+      number80 index79 alt1\">80</div>\r\n\r\n\t\t\t<div class=\"line number81 index80
+      alt2\">81</div>\r\n\r\n\t\t\t<div class=\"line number82 index81 alt1\">82</div>\r\n\r\n\t\t\t<div
+      class=\"line number83 index82 alt2\">83</div>\r\n\r\n\t\t\t<div class=\"line
+      number84 index83 alt1\">84</div>\r\n\r\n\t\t\t<div class=\"line number85 index84
+      alt2\">85</div>\r\n\r\n\t\t\t<div class=\"line number86 index85 alt1\">86</div>\r\n\r\n\t\t\t<div
+      class=\"line number87 index86 alt2\">87</div>\r\n\r\n\t\t\t<div class=\"line
+      number88 index87 alt1\">88</div>\r\n\r\n\t\t\t<div class=\"line number89 index88
+      alt2\">89</div>\r\n\r\n\t\t\t<div class=\"line number90 index89 alt1\">90</div>\r\n\r\n\t\t\t<div
+      class=\"line number91 index90 alt2\">91</div>\r\n\r\n\t\t\t<div class=\"line
+      number92 index91 alt1\">92</div>\r\n\r\n\t\t\t<div class=\"line number93 index92
+      alt2\">93</div>\r\n\r\n\t\t\t<div class=\"line number94 index93 alt1\">94</div>\r\n\r\n\t\t\t<div
+      class=\"line number95 index94 alt2\">95</div>\r\n\r\n\t\t\t<div class=\"line
+      number96 index95 alt1\">96</div>\r\n\r\n\t\t\t<div class=\"line number97 index96
+      alt2\">97</div>\r\n\r\n\t\t\t<div class=\"line number98 index97 alt1\">98</div>\r\n\r\n\t\t\t<div
+      class=\"line number99 index98 alt2\">99</div>\r\n\r\n\t\t\t<div class=\"line
+      number100 index99 alt1\">100</div>\r\n\r\n\t\t\t<div class=\"line number101
+      index100 alt2\">101</div>\r\n\r\n\t\t\t<div class=\"line number102 index101
+      alt1\">102</div>\r\n\r\n\t\t\t<div class=\"line number103 index102 alt2\">103</div>\r\n\r\n\t\t\t<div
+      class=\"line number104 index103 alt1\">104</div>\r\n\r\n\t\t\t<div class=\"line
+      number105 index104 alt2\">105</div>\r\n\r\n\t\t\t<div class=\"line number106
+      index105 alt1\">106</div>\r\n\r\n\t\t\t<div class=\"line number107 index106
+      alt2\">107</div>\r\n\r\n\t\t\t<div class=\"line number108 index107 alt1\">108</div>\r\n\r\n\t\t\t<div
+      class=\"line number109 index108 alt2\">109</div>\r\n\r\n\t\t\t<div class=\"line
+      number110 index109 alt1\">110</div>\r\n\r\n\t\t\t<div class=\"line number111
+      index110 alt2\">111</div>\r\n\r\n\t\t\t<div class=\"line number112 index111
+      alt1\">112</div>\r\n\r\n\t\t\t<div class=\"line number113 index112 alt2\">113</div>\r\n\r\n\t\t\t<div
+      class=\"line number114 index113 alt1\">114</div>\r\n\r\n\t\t\t<div class=\"line
+      number115 index114 alt2\">115</div>\r\n\r\n\t\t\t<div class=\"line number116
+      index115 alt1\">116</div>\r\n\r\n\t\t\t<div class=\"line number117 index116
+      alt2\">117</div>\r\n\t\t\t</td>\r\n\t\t\t<td class=\"code\">\r\n\t\t\t<div class=\"container\">\r\n\t\t\t<div
+      class=\"line number1 index0 alt2\"><code class=\"css plain\">body {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number2 index1 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">margin</code><code class=\"css plain\">: </code><code
+      class=\"css value\">20px</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number3 index2 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">padding</code><code class=\"css plain\">: </code><code
+      class=\"css value\">0</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number4 index3 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">font-family</code><code class=\"css plain\">: </code><code
+      class=\"css string\">&quot;Georgia&quot;</code><code class=\"css plain\">, </code><code
+      class=\"css color1\">serif</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number5 index4 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">line-height</code><code class=\"css plain\">: </code><code
+      class=\"css value\">150%</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number6 index5 alt1\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number7 index6 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number8 index7 alt1\"><code class=\"css plain\">h</code><code class=\"css value\">1</code>
+      <code class=\"css plain\">{</code></div>\r\n\r\n\t\t\t<div class=\"line number9
+      index8 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code class=\"css
+      keyword\">line-height</code><code class=\"css plain\">: </code><code class=\"css
+      value\">100%</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number10 index9 alt1\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number11 index10 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number12 index11 alt1\"><code class=\"css plain\">#pageBody {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number13 index12 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">max-width</code><code class=\"css plain\">: </code><code
+      class=\"css value\">1200px</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number14 index13 alt1\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number15 index14 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number16 index15 alt1\"><code class=\"css plain\">#header, #nav, #footer, h</code><code
+      class=\"css value\">1</code><code class=\"css plain\">, h</code><code class=\"css
+      value\">2</code><code class=\"css plain\">, h</code><code class=\"css value\">3</code>
+      <code class=\"css plain\">{</code></div>\r\n\r\n\t\t\t<div class=\"line number17
+      index16 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code class=\"css
+      keyword\">font-family</code><code class=\"css plain\">: </code><code class=\"css
+      color1\">Tahoma</code><code class=\"css plain\">, Geneva, </code><code class=\"css
+      color1\">sans-serif</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number18 index17 alt1\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number19 index18 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number20 index19 alt1\"><code class=\"css plain\">#header {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number21 index20 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">width</code><code class=\"css plain\">: </code><code class=\"css
+      value\">100%</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number22 index21 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">margin</code><code class=\"css plain\">: </code><code
+      class=\"css value\">0</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number23 index22 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">padding</code><code class=\"css plain\">: </code><code
+      class=\"css value\">0</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number24 index23 alt1\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number25 index24 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number26 index25 alt1\"><code class=\"css plain\">#header .inner {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number27 index26 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">margin</code><code class=\"css plain\">: </code><code
+      class=\"css value\">0</code> <code class=\"css value\">0</code> <code class=\"css
+      value\">20px</code> <code class=\"css value\">0</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number28 index27 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">padding</code><code class=\"css plain\">: </code><code
+      class=\"css value\">20px</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number29 index28 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">color</code><code class=\"css plain\">: </code><code class=\"css
+      value\">#fff</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number30 index29 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">background</code><code class=\"css plain\">: </code><code
+      class=\"css value\">#F38630</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number31 index30 alt2\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number32 index31 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number33 index32 alt2\"><code class=\"css plain\">#header a {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number34 index33 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">display</code><code class=\"css plain\">: </code><code
+      class=\"css value\">block</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number35 index34 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">float</code><code class=\"css plain\">: </code><code class=\"css
+      value\">right</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number36 index35 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">color</code><code class=\"css plain\">: </code><code class=\"css
+      value\">#fff</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number37 index36 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">font-weight</code><code class=\"css plain\">: </code><code
+      class=\"css value\">normal</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number38 index37 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">font-size</code><code class=\"css plain\">: </code><code
+      class=\"css value\">80%</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number39 index38 alt2\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number40 index39 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number41 index40 alt2\"><code class=\"css plain\">#content {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number42 index41 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">float</code><code class=\"css plain\">: </code><code class=\"css
+      value\">left</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number43 index42 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">width</code><code class=\"css plain\">: </code><code class=\"css
+      value\">65%</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number44 index43 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">margin</code><code class=\"css plain\">: </code><code
+      class=\"css value\">0</code> <code class=\"css value\">0</code> <code class=\"css
+      value\">20px</code> <code class=\"css value\">0</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number45 index44 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">padding</code><code class=\"css plain\">: </code><code
+      class=\"css value\">0</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number46 index45 alt1\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number47 index46 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number48 index47 alt1\"><code class=\"css plain\">#content .inner {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number49 index48 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">margin-right</code><code class=\"css plain\">: </code><code
+      class=\"css value\">20px</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number50 index49 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">padding</code><code class=\"css plain\">: </code><code
+      class=\"css value\">20px</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number51 index50 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">color</code><code class=\"css plain\">: </code><code class=\"css
+      value\">#333</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number52 index51 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">background</code><code class=\"css plain\">: </code><code
+      class=\"css value\">#E0E4CC</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number53 index52 alt2\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number54 index53 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number55 index54 alt2\"><code class=\"css plain\">#sidebar {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number56 index55 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">float</code><code class=\"css plain\">: </code><code class=\"css
+      value\">right</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number57 index56 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">width</code><code class=\"css plain\">: </code><code class=\"css
+      value\">20%</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number58 index57 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">margin</code><code class=\"css plain\">: </code><code
+      class=\"css value\">0</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number59 index58 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">padding</code><code class=\"css plain\">: </code><code
+      class=\"css value\">0</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number60 index59 alt1\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number61 index60 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number62 index61 alt1\"><code class=\"css plain\">#sidebar .inner {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number63 index62 alt2\"><code class=\"css spaces\">&nbsp;</code><code
+      class=\"css keyword\">margin-right</code><code class=\"css plain\">: </code><code
+      class=\"css value\">20px</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number64 index63 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">padding</code><code class=\"css plain\">: </code><code
+      class=\"css value\">20px</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number65 index64 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">color</code><code class=\"css plain\">: </code><code class=\"css
+      value\">#fff</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number66 index65 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">background</code><code class=\"css plain\">: </code><code
+      class=\"css value\">#69D2E7</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number67 index66 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">font-size</code><code class=\"css plain\">: </code><code
+      class=\"css value\">85%</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number68 index67 alt1\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number69 index68 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number70 index69 alt1\"><code class=\"css plain\">#nav {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number71 index70 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">float</code><code class=\"css plain\">: </code><code class=\"css
+      value\">right</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number72 index71 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">width</code><code class=\"css plain\">: </code><code class=\"css
+      value\">15%</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number73 index72 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">margin</code><code class=\"css plain\">: </code><code
+      class=\"css value\">0</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number74 index73 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">padding</code><code class=\"css plain\">: </code><code
+      class=\"css value\">0</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number75 index74 alt2\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number76 index75 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number77 index76 alt2\"><code class=\"css plain\">#nav ul {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number78 index77 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">margin</code><code class=\"css plain\">: </code><code
+      class=\"css value\">0</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number79 index78 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">padding</code><code class=\"css plain\">: </code><code
+      class=\"css value\">20px</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number80 index79 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">list-style</code><code class=\"css plain\">: </code><code
+      class=\"css value\">none</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number81 index80 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">color</code><code class=\"css plain\">: </code><code class=\"css
+      value\">#333</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number82 index81 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">background</code><code class=\"css plain\">: </code><code
+      class=\"css value\">#A7DBD8</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number83 index82 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">overflow</code><code class=\"css plain\">: </code><code
+      class=\"css value\">hidden</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number84 index83 alt1\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number85 index84 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number86 index85 alt1\"><code class=\"css plain\">#nav li {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number87 index86 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">border-bottom</code><code class=\"css plain\">: </code><code
+      class=\"css value\">1px</code> <code class=\"css value\">solid</code> <code
+      class=\"css plain\">rgba(</code><code class=\"css value\">255</code><code class=\"css
+      plain\">,</code><code class=\"css value\">255</code><code class=\"css plain\">,</code><code
+      class=\"css value\">255</code><code class=\"css plain\">,.</code><code class=\"css
+      value\">5</code><code class=\"css plain\">);</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number88 index87 alt1\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number89 index88 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number90 index89 alt1\"><code class=\"css plain\">#nav li:last-child {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number91 index90 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">border-bottom</code><code class=\"css plain\">: </code><code
+      class=\"css value\">none</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number92 index91 alt1\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number93 index92 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number94 index93 alt1\"><code class=\"css plain\">#nav a {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number95 index94 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">display</code><code class=\"css plain\">: </code><code
+      class=\"css value\">block</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number96 index95 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">color</code><code class=\"css plain\">: </code><code class=\"css
+      value\">#fff</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number97 index96 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">text-decoration</code><code class=\"css plain\">: </code><code
+      class=\"css value\">none</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number98 index97 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">padding</code><code class=\"css plain\">: </code><code
+      class=\"css value\">10px</code> <code class=\"css value\">0</code> <code class=\"css
+      value\">10px</code> <code class=\"css value\">10px</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number99 index98 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">font-weight</code><code class=\"css plain\">: </code><code
+      class=\"css value\">bold</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number100 index99 alt1\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number101 index100 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number102 index101 alt1\"><code class=\"css plain\">#nav a:hover {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number103 index102 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">background</code><code class=\"css plain\">: </code><code
+      class=\"css value\">#bce5e3</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number104 index103 alt1\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number105 index104 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number106 index105 alt1\"><code class=\"css plain\">#footer {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number107 index106 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">clear</code><code class=\"css plain\">: </code><code class=\"css
+      value\">both</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number108 index107 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">width</code><code class=\"css plain\">: </code><code class=\"css
+      value\">100%</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number109 index108 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">margin</code><code class=\"css plain\">: </code><code
+      class=\"css value\">0</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number110 index109 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">padding</code><code class=\"css plain\">: </code><code
+      class=\"css value\">0</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number111 index110 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">color</code><code class=\"css plain\">: </code><code class=\"css
+      value\">#fff</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number112 index111 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">background</code><code class=\"css plain\">: </code><code
+      class=\"css value\">#FA6900</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number113 index112 alt2\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number114 index113 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number115 index114 alt2\"><code class=\"css plain\">#footer .inner {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number116 index115 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css keyword\">padding</code><code class=\"css plain\">: </code><code
+      class=\"css value\">5px</code> <code class=\"css value\">20px</code><code class=\"css
+      plain\">;</code></div>\r\n\r\n\t\t\t<div class=\"line number117 index116 alt2\"><code
+      class=\"css plain\">}</code></div>\r\n\t\t\t</div>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n\r\n<p>Этот
+      шаблон достаточно прост. Он включает в себя:</p>\r\n\r\n<ul>\r\n\t<li><strong>Хедер</strong>,
+      #header. Полоса простирается всю ширину окна.</li>\r\n\t<li><strong>Контент</strong>,
+      # content. Эта область находится слева, и занимает 65% от ширины окна.</li>\r\n\t<li><strong>Сайдбар</strong>
+      (боковая колонка), # sidebar. Это область находится справа от области основного
+      содержания, и занимает 20% от ширины окна.</li>\r\n\t<li><strong>Меню навигации</strong>,
+      #nav. Оно так же находится в правой части сайта, а именно справа от боковой
+      панели. Оно занимает 15% от ширины окна.</li>\r\n\t<li><strong>Футер</strong>,
+      #footer. Как и в заголовке, эта полоса простирается через всё окно.</li>\r\n</ul>\r\n\r\n<p>Мы
+      также обернули контент, сайдбар и навигацию в #pageBody div, которому мы даем
+      максимальную ширину в 1200px, чтобы предотвратить слишком большое растяжение
+      содержимого сайта на очень широких окнах браузера.</p>\r\n\r\n<p><a class=\"demo\"
+      href=\"http://www.elated.com/res/File/articles/authoring/responsive-web-design-demystified/fluid.html\">Демо</a></p>\r\n\r\n<p>Измените
+      размера окна браузера, чтобы увидеть, как изменяется шаблон в зависимости от
+      изменений ширины видимой области.<br />\r\nПо мере сужения видимой области все
+      элементы страницы тоже сужаются пропорционально. Все это прекрасно работает,
+      пока ширина браузера не становится меньше 1000px, после чего три колонки начинают
+      теснить друг друга. При дальнейшем сужении окна браузера, примерно до 600px,
+      колонки становятся настолько сжатыми, что текст внутри становится нечитаемым.</p>\r\n\r\n<p><img
+      alt=\" \" class=\"aligncenter\" src=\"http://naikom.ru/img/2012/allaboutresponsive/4.png\"
+      title=\"Раскрытие тайны адаптивного веб дизайна\" /></p>\r\n\r\n<p><strong>Изменяющийся
+      шаблон хорошо подходит для относительно широких окон браузера.</strong></p>\r\n\r\n<p><img
+      alt=\" \" class=\"aligncenter\" src=\"http://naikom.ru/img/2012/allaboutresponsive/5.png\"
+      title=\"Раскрытие тайны адаптивного веб дизайна\" /></p>\r\n\r\n<p><strong>Однако
+      с узкими окнами изменяющийся шаблон перестает работать правильно.</strong></p>\r\n\r\n<h3>Как
+      сделать шаблон адаптивным</h3>\r\n\r\n<p>Очевидно, что изменяющийся шаблон,
+      как показано выше, не будет хорошо работать на узких экранах мобильных устройств.
+      В таких случаях следует применять адаптивные шаблоны.<br />\r\nДелая наш шаблон
+      адаптивным, мы можем изменить различные элементы страницы в зависимости от ширины
+      видимой области. Для окон браузера широкого рабочего стола применяются стандартные
+      три колонки, в то время как для окон узкого браузера и мобильных браузеров применяется
+      оптимальный шаблон, который больше подходит для их уменьшенной ширины.</p>\r\n\r\n<h4
+      id=\"ponimanie-media-queries\">Понимание media queries</h4>\r\n\r\n<p>Ключом
+      к созданию адаптивных шаблонов является стандарт CSS media queries. С помощью
+      media queries вы можете создать множество наборов правил CSS, которые применяются
+      только когда видимая область браузера находится в рамках определенной ширины
+      или высоты, или в пределах диапазона заданной ширины / высоты. Например, при
+      создании media query для окон, ширина которых менее 700 пикселей, можно применить
+      набор пользовательских правил CSS, которые автоматически подстраивают элементы
+      страницы, когда страница выводится на узкие окна браузера.<br />\r\nMedia queries
+      работают почти во всех современных браузерах, за исключением Internet Explorer
+      8 и его более ранних версий.<br />\r\nВот некоторые media queries, которые,
+      скорее всего, придется использовать при построении адаптивных шаблонов:</p>\r\n\r\n<p><strong>min-width:
+      width </strong><br />\r\nПрименяется, если ширина окна больше или равна ширине
+      шаблона</p>\r\n\r\n<p><strong>max-width: width </strong><br />\r\nПрименяется,
+      если ширина окна меньше или равна ширине шаблона</p>\r\n\r\n<p><strong>min-device-width:
+      width </strong><br />\r\nПрименяется при ширине экрана устройства больше или
+      равной ширине шаблона</p>\r\n\r\n<p><strong>max-device-width: width </strong><br
+      />\r\nПрименяется при ширине экрана устройства меньше или равной ширине шаблона</p>\r\n\r\n<p><em
+      class=\"info\">Вы также можете указать точные значения ширины, используя свойства
+      &laquo;width&raquo; и &laquo;device-width&raquo;, хотя вы, скорее всего, будете
+      использовать варианты минимальной и максимальной ширины, которые позволяют задать
+      диапазон значений.</em></p>\r\n\r\n<p>Разница между шириной шаблона и шириной
+      устройства очень трудноуловима, но важна:<br />\r\n<strong>width</strong> &mdash;
+      это ширина окна браузера. На браузерах обычных компьютеров, width, как правило,
+      меньше ширины экрана. Тем не менее, на мобильных браузерах, width обычно больше
+      ширины экрана, так как большинство мобильных браузеров используют &laquo;виртуальное
+      окно&raquo;, которое больше размеров экрана, что позволяет пользователю увеличивать
+      и уменьшать масштаб изображения, а также перемещаться по области окна, перетаскивая
+      изображения. Например, Mobile Safari использует виртуальное окно, ширина которого
+      составляет 980px, хотя ширина экрана устройства IOS, как правило, составляет
+      от 320 до 768px (в вертикальном режиме). Более подробно про окна вы узнаете
+      <a href=\"http://naikom.ru/blog/archives/5566#viewport-meta-tag\">далее</a>.<br
+      />\r\n<strong>device-width</strong> &mdash; это ширина экрана устройства. На
+      настольном компьютере эта информация обычно не так важна для нас, как веб-разработчиков.
+      Знать ширину экрана на мобильном устройстве может быть полезно, так как в таком
+      случае вы сможете адаптировать шаблон, чтобы он соответствовал экрану устройства.
+      Однако, если вы используете мета-тег viewport для блокировки ширины окна в соответствии
+      с шириной экрана (подробнее об этом позже), то вы можете просто использовать
+      width вместо device-width для достижения того же результата.</p>\r\n\r\n<p><em
+      class=\"info\">Другое трудноуловимое различие в том, что width (min-width/max-width)
+      измеряется в пикселях CSS, в то время как device-width (min-device-width/max-device-width)
+      измеряется в пикселях устройства. Когда страница увеличена до 100% на мобильном
+      устройстве, то 1 CSS пиксель = 1 пикселю устройства. Однако если масштаб страницы
+      уменьшен, тогда 1 CSS пиксель меньше 1 пикселя устройства. Дальнейшее развитие
+      событий осложняется появлением дисплеев высокой чёткости, таких как Retina Display
+      от Apple, в котором пиксель устройства может фактически вмещать более одного
+      пикселя экрана! ( Это делает жизнь веб-разработчика легче, так как ему не нужно
+      больше беспокоиться о том, будет дисплей устройства нормальной или же высокой
+      плотности).</em></p>\r\n\r\n<h4>Адаптация к окнам шириной в 1000 или менее пикселей</h4>\r\n\r\n<p>Как
+      уже отмечалось в статье ранее, наш резиновый шаблон хорошо работает для браузеров
+      с широкими окнами, но контент, сайдбар и навигация начинают выглядеть скомкано,
+      когда окно по ширине становится менее 1000px.<br />\r\nДавайте это исправим.
+      Мы будем использовать media query, чтобы понять, является ли ширина окна меньше
+      или равной 1000px. Если ширина именно такая, то мы поместим навигацию в верхней
+      части боковой панели, а не с правой стороны. Затем мы можем сделать навигацию,
+      боковую панель и содержание немного шире, так, чтобы все выглядело менее скомкано.<br
+      />\r\nВот CSS, чтобы сделать вышеописанное &mdash; можно добавить его либо в
+      конце main.css, либо положить его в отдельный файл CSS, или же вставить его
+      в head страницы:</p>\r\n\r\n<div>\r\n<div class=\"syntaxhighlighter  css\" id=\"highlighter_900410\">\r\n<table
+      border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td
+      class=\"gutter\">\r\n\t\t\t<div class=\"line number1 index0 alt2\">1</div>\r\n\r\n\t\t\t<div
+      class=\"line number2 index1 alt1\">2</div>\r\n\r\n\t\t\t<div class=\"line number3
+      index2 alt2\">3</div>\r\n\r\n\t\t\t<div class=\"line number4 index3 alt1\">4</div>\r\n\r\n\t\t\t<div
+      class=\"line number5 index4 alt2\">5</div>\r\n\r\n\t\t\t<div class=\"line number6
+      index5 alt1\">6</div>\r\n\r\n\t\t\t<div class=\"line number7 index6 alt2\">7</div>\r\n\r\n\t\t\t<div
+      class=\"line number8 index7 alt1\">8</div>\r\n\r\n\t\t\t<div class=\"line number9
+      index8 alt2\">9</div>\r\n\r\n\t\t\t<div class=\"line number10 index9 alt1\">10</div>\r\n\r\n\t\t\t<div
+      class=\"line number11 index10 alt2\">11</div>\r\n\r\n\t\t\t<div class=\"line
+      number12 index11 alt1\">12</div>\r\n\r\n\t\t\t<div class=\"line number13 index12
+      alt2\">13</div>\r\n\r\n\t\t\t<div class=\"line number14 index13 alt1\">14</div>\r\n\r\n\t\t\t<div
+      class=\"line number15 index14 alt2\">15</div>\r\n\r\n\t\t\t<div class=\"line
+      number16 index15 alt1\">16</div>\r\n\r\n\t\t\t<div class=\"line number17 index16
+      alt2\">17</div>\r\n\r\n\t\t\t<div class=\"line number18 index17 alt1\">18</div>\r\n\r\n\t\t\t<div
+      class=\"line number19 index18 alt2\">19</div>\r\n\r\n\t\t\t<div class=\"line
+      number20 index19 alt1\">20</div>\r\n\r\n\t\t\t<div class=\"line number21 index20
+      alt2\">21</div>\r\n\r\n\t\t\t<div class=\"line number22 index21 alt1\">22</div>\r\n\r\n\t\t\t<div
+      class=\"line number23 index22 alt2\">23</div>\r\n\r\n\t\t\t<div class=\"line
+      number24 index23 alt1\">24</div>\r\n\r\n\t\t\t<div class=\"line number25 index24
+      alt2\">25</div>\r\n\t\t\t</td>\r\n\t\t\t<td class=\"code\">\r\n\t\t\t<div class=\"container\">\r\n\t\t\t<div
+      class=\"line number1 index0 alt2\"><code class=\"css comments\">/* если ширина
+      окна &lt;= 1000px ... */</code></div>\r\n\r\n\t\t\t<div class=\"line number2
+      index1 alt1\"><code class=\"css spaces\">&nbsp;</code><code class=\"css comments\">/*открываем
+      media query*/</code></div>\r\n\r\n\t\t\t<div class=\"line number3 index2 alt2\"><code
+      class=\"css plain\">@media </code><code class=\"css value\">screen</code> <code
+      class=\"css plain\">and (</code><code class=\"css keyword\">max-width</code><code
+      class=\"css plain\">: </code><code class=\"css value\">1000px</code><code class=\"css
+      plain\">) {</code></div>\r\n\r\n\t\t\t<div class=\"line number4 index3 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div
+      class=\"line number5 index4 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css comments\">/* Делаем основной контент немного шире */</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number6 index5 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number7 index6 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code class=\"css
+      plain\">#content {</code></div>\r\n\r\n\t\t\t<div class=\"line number8 index7
+      alt1\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class=\"css
+      keyword\">width</code><code class=\"css plain\">: </code><code class=\"css value\">75%</code><code
+      class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div class=\"line number9 index8
+      alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number10 index9 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number11 index10 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css comments\">/* Переносим навигацию наверх сайдбара */</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number12 index11 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number13 index12 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css plain\">#nav, #sidebar {</code></div>\r\n\r\n\t\t\t<div class=\"line
+      number14 index13 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">width</code><code class=\"css plain\">: </code><code class=\"css
+      value\">25%</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number15 index14 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div class=\"line number16 index15
+      alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line number17 index16 alt2\"><code
+      class=\"css spaces\">&nbsp;&nbsp;</code><code class=\"css comments\">/* Регулируем
+      отступы сайдбара */</code></div>\r\n\r\n\t\t\t<div class=\"line number18 index17
+      alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line number19 index18 alt2\"><code
+      class=\"css spaces\">&nbsp;&nbsp;</code><code class=\"css plain\">#sidebar .inner
+      {</code></div>\r\n\r\n\t\t\t<div class=\"line number20 index19 alt1\"><code
+      class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class=\"css keyword\">margin-right</code><code
+      class=\"css plain\">: </code><code class=\"css value\">0</code><code class=\"css
+      plain\">;</code></div>\r\n\r\n\t\t\t<div class=\"line number21 index20 alt2\"><code
+      class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class=\"css keyword\">margin-top</code><code
+      class=\"css plain\">: </code><code class=\"css value\">20px</code><code class=\"css
+      plain\">;</code></div>\r\n\r\n\t\t\t<div class=\"line number22 index21 alt1\"><code
+      class=\"css spaces\">&nbsp;&nbsp;</code><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number23 index22 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number24 index23 alt1\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number25 index24 alt2\"><code class=\"css spaces\">&nbsp;</code><code
+      class=\"css comments\">/*закрываем media query*/</code></div>\r\n\t\t\t</div>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n\r\n<p>Наборы
+      правил внутри нашего media query запускаются при просмотре страницы на экране,
+      если при этом ширина окна составляет 1000 или менее пикселей. Наборы правил
+      выглядят следующим образом:</p>\r\n\r\n<ul>\r\n\t<li>Первый набор правил растягивает
+      ширину контента с 65% до 75%.</li>\r\n\t<li>Второй набор правил ставит навигацию
+      в верхнюю часть боковой панели, устанавливая ширину обоих элементов равной 25%.</li>\r\n\t<li>Третий
+      набор правил удаляет правое поле из содержания боковой панели и добавляет вместо
+      этого верхнее поле, так, чтобы получилось некоторое пространство по вертикали
+      между навигацией и сайдбаром.</li>\r\n</ul>\r\n\r\n<p><a class=\"demo\" href=\"http://www.elated.com/res/File/articles/authoring/responsive-web-design-demystified/responsive-1000.html\">Демо</a></p>\r\n\r\n<p>Вы
+      можете посмотреть, как это выглядит наглядно. Верхний скриншот показывает первоначальный
+      резиновый шаблон при использовании окна с шириной 800px; нижний скриншот показывает
+      адаптивный шаблон с той же самой шириной.</p>\r\n\r\n<p><img alt=\" \" class=\"aligncenter\"
+      src=\"http://naikom.ru/img/2012/allaboutresponsive/6.png\" title=\"Раскрытие
+      тайны адаптивного веб дизайна\" /></p>\r\n\r\n<p><strong>Наш первый адаптивный
+      шаблон по media query в действии. Вот первоначальный резиновый шаблон в окне
+      шириной 800px&hellip;</strong></p>\r\n\r\n<p><img alt=\" \" class=\"aligncenter\"
+      src=\"http://naikom.ru/img/2012/allaboutresponsive/7.png\" title=\"Раскрытие
+      тайны адаптивного веб дизайна\" /></p>\r\n\r\n<p><strong>&hellip; а вот адаптивный
+      шаблон, также с шириной 800px. Обратите внимание, что навигация перемещена в
+      положение над боковой панелью, создавая больше места для содержания.</strong></p>\r\n\r\n<h4>Адаптация
+      к окнам шириной в 700 или менее пикселей</h4>\r\n\r\n<p>По мере того, как окно
+      сужается до ширины в 700px даже наши новые две колонки начинают выглядеть сжато:</p>\r\n\r\n<p><img
+      alt=\" \" class=\"aligncenter\" src=\"http://naikom.ru/img/2012/allaboutresponsive/8.png\"
+      title=\"Раскрытие тайны адаптивного веб дизайна\" /></p>\r\n\r\n<p>При ширине
+      в 500 пикселей наши две колонки адаптивного шаблона начинают выглядеть сплющено.<br
+      />\r\nЧтобы решить эту проблему, мы можем использовать другой media query для
+      того, чтобы переделать страничку в одну колонку для таких узких размеров окон.
+      Вот CSS:</p>\r\n\r\n<div>\r\n<div class=\"syntaxhighlighter  css\" id=\"highlighter_744653\">\r\n<table
+      border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td
+      class=\"gutter\">\r\n\t\t\t<div class=\"line number1 index0 alt2\">1</div>\r\n\r\n\t\t\t<div
+      class=\"line number2 index1 alt1\">2</div>\r\n\r\n\t\t\t<div class=\"line number3
+      index2 alt2\">3</div>\r\n\r\n\t\t\t<div class=\"line number4 index3 alt1\">4</div>\r\n\r\n\t\t\t<div
+      class=\"line number5 index4 alt2\">5</div>\r\n\r\n\t\t\t<div class=\"line number6
+      index5 alt1\">6</div>\r\n\r\n\t\t\t<div class=\"line number7 index6 alt2\">7</div>\r\n\r\n\t\t\t<div
+      class=\"line number8 index7 alt1\">8</div>\r\n\r\n\t\t\t<div class=\"line number9
+      index8 alt2\">9</div>\r\n\r\n\t\t\t<div class=\"line number10 index9 alt1\">10</div>\r\n\r\n\t\t\t<div
+      class=\"line number11 index10 alt2\">11</div>\r\n\r\n\t\t\t<div class=\"line
+      number12 index11 alt1\">12</div>\r\n\r\n\t\t\t<div class=\"line number13 index12
+      alt2\">13</div>\r\n\r\n\t\t\t<div class=\"line number14 index13 alt1\">14</div>\r\n\r\n\t\t\t<div
+      class=\"line number15 index14 alt2\">15</div>\r\n\r\n\t\t\t<div class=\"line
+      number16 index15 alt1\">16</div>\r\n\r\n\t\t\t<div class=\"line number17 index16
+      alt2\">17</div>\r\n\r\n\t\t\t<div class=\"line number18 index17 alt1\">18</div>\r\n\r\n\t\t\t<div
+      class=\"line number19 index18 alt2\">19</div>\r\n\r\n\t\t\t<div class=\"line
+      number20 index19 alt1\">20</div>\r\n\r\n\t\t\t<div class=\"line number21 index20
+      alt2\">21</div>\r\n\r\n\t\t\t<div class=\"line number22 index21 alt1\">22</div>\r\n\r\n\t\t\t<div
+      class=\"line number23 index22 alt2\">23</div>\r\n\r\n\t\t\t<div class=\"line
+      number24 index23 alt1\">24</div>\r\n\r\n\t\t\t<div class=\"line number25 index24
+      alt2\">25</div>\r\n\r\n\t\t\t<div class=\"line number26 index25 alt1\">26</div>\r\n\r\n\t\t\t<div
+      class=\"line number27 index26 alt2\">27</div>\r\n\r\n\t\t\t<div class=\"line
+      number28 index27 alt1\">28</div>\r\n\r\n\t\t\t<div class=\"line number29 index28
+      alt2\">29</div>\r\n\r\n\t\t\t<div class=\"line number30 index29 alt1\">30</div>\r\n\r\n\t\t\t<div
+      class=\"line number31 index30 alt2\">31</div>\r\n\r\n\t\t\t<div class=\"line
+      number32 index31 alt1\">32</div>\r\n\r\n\t\t\t<div class=\"line number33 index32
+      alt2\">33</div>\r\n\r\n\t\t\t<div class=\"line number34 index33 alt1\">34</div>\r\n\r\n\t\t\t<div
+      class=\"line number35 index34 alt2\">35</div>\r\n\r\n\t\t\t<div class=\"line
+      number36 index35 alt1\">36</div>\r\n\r\n\t\t\t<div class=\"line number37 index36
+      alt2\">37</div>\r\n\r\n\t\t\t<div class=\"line number38 index37 alt1\">38</div>\r\n\r\n\t\t\t<div
+      class=\"line number39 index38 alt2\">39</div>\r\n\r\n\t\t\t<div class=\"line
+      number40 index39 alt1\">40</div>\r\n\r\n\t\t\t<div class=\"line number41 index40
+      alt2\">41</div>\r\n\r\n\t\t\t<div class=\"line number42 index41 alt1\">42</div>\r\n\r\n\t\t\t<div
+      class=\"line number43 index42 alt2\">43</div>\r\n\r\n\t\t\t<div class=\"line
+      number44 index43 alt1\">44</div>\r\n\r\n\t\t\t<div class=\"line number45 index44
+      alt2\">45</div>\r\n\r\n\t\t\t<div class=\"line number46 index45 alt1\">46</div>\r\n\r\n\t\t\t<div
+      class=\"line number47 index46 alt2\">47</div>\r\n\r\n\t\t\t<div class=\"line
+      number48 index47 alt1\">48</div>\r\n\r\n\t\t\t<div class=\"line number49 index48
+      alt2\">49</div>\r\n\r\n\t\t\t<div class=\"line number50 index49 alt1\">50</div>\r\n\r\n\t\t\t<div
+      class=\"line number51 index50 alt2\">51</div>\r\n\r\n\t\t\t<div class=\"line
+      number52 index51 alt1\">52</div>\r\n\r\n\t\t\t<div class=\"line number53 index52
+      alt2\">53</div>\r\n\r\n\t\t\t<div class=\"line number54 index53 alt1\">54</div>\r\n\t\t\t</td>\r\n\t\t\t<td
+      class=\"code\">\r\n\t\t\t<div class=\"container\">\r\n\t\t\t<div class=\"line
+      number1 index0 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css comments\">/* если ширина окна &lt;= 700px ... */</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number2 index1 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css comments\">/*открываем media query*/</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number3 index2 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css plain\">@media </code><code class=\"css value\">screen</code> <code
+      class=\"css plain\">and (</code><code class=\"css keyword\">max-width</code><code
+      class=\"css plain\">: </code><code class=\"css value\">700px</code><code class=\"css
+      plain\">) {</code></div>\r\n\r\n\t\t\t<div class=\"line number4 index3 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div
+      class=\"line number5 index4 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css comments\">/* Заполняем контентом всю ширину экрана */</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number6 index5 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number7 index6 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css plain\">#content {</code></div>\r\n\r\n\t\t\t<div class=\"line number8
+      index7 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">width</code><code class=\"css plain\">: </code><code class=\"css
+      value\">100%</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number9 index8 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div class=\"line number10 index9
+      alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line number11 index10 alt2\"><code
+      class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class=\"css
+      comments\">/* Удаляем правый отступ у контента */</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number12 index11 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number13 index12 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css plain\">#content .inner {</code></div>\r\n\r\n\t\t\t<div class=\"line
+      number14 index13 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">margin-right</code><code class=\"css plain\">: </code><code
+      class=\"css value\">0</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number15 index14 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div class=\"line number16 index15
+      alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line number17 index16 alt2\"><code
+      class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class=\"css
+      comments\">/* Располагаем навигацию над контентом */</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number18 index17 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number19 index18 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css plain\">#nav {</code></div>\r\n\r\n\t\t\t<div class=\"line number20
+      index19 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">float</code><code class=\"css plain\">: </code><code class=\"css
+      value\">none</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number21 index20 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">width</code><code class=\"css plain\">: </code><code class=\"css
+      value\">100%</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number22 index21 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">margin-bottom</code><code class=\"css plain\">: </code><code
+      class=\"css value\">20px</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number23 index22 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div class=\"line number24 index23
+      alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line number25 index24 alt2\"><code
+      class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class=\"css
+      comments\">/* Располагаем элементы навигации в строку */</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number26 index25 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number27 index26 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css plain\">#nav li {</code></div>\r\n\r\n\t\t\t<div class=\"line number28
+      index27 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">float</code><code class=\"css plain\">: </code><code class=\"css
+      value\">left</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number29 index28 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">width</code><code class=\"css plain\">: </code><code class=\"css
+      value\">24%</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number30 index29 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">border-bottom</code><code class=\"css plain\">: </code><code
+      class=\"css value\">none</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number31 index30 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">border-right</code><code class=\"css plain\">: </code><code
+      class=\"css value\">1px</code> <code class=\"css value\">solid</code> <code
+      class=\"css plain\">rgba(</code><code class=\"css value\">255</code><code class=\"css
+      plain\">,</code><code class=\"css value\">255</code><code class=\"css plain\">,</code><code
+      class=\"css value\">255</code><code class=\"css plain\">,.</code><code class=\"css
+      value\">5</code><code class=\"css plain\">);</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number32 index31 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div class=\"line number33 index32
+      alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line number34 index33 alt1\"><code
+      class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class=\"css
+      plain\">#nav li:last-child {</code></div>\r\n\r\n\t\t\t<div class=\"line number35
+      index34 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">width</code><code class=\"css plain\">: </code><code class=\"css
+      value\">27%</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number36 index35 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">border-right</code><code class=\"css plain\">: </code><code
+      class=\"css value\">none</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number37 index36 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div class=\"line number38 index37
+      alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line number39 index38 alt2\"><code
+      class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class=\"css
+      plain\">#nav a {</code></div>\r\n\r\n\t\t\t<div class=\"line number40 index39
+      alt1\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">text-align</code><code class=\"css plain\">: </code><code
+      class=\"css value\">center</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number41 index40 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">padding-left</code><code class=\"css plain\">: </code><code
+      class=\"css value\">0</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number42 index41 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div class=\"line number43 index42
+      alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line number44 index43 alt1\"><code
+      class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class=\"css
+      comments\">/* Располагаем сайдбар под контентом*/</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number45 index44 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number46 index45 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css plain\">#sidebar {</code></div>\r\n\r\n\t\t\t<div class=\"line number47
+      index46 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">float</code><code class=\"css plain\">: </code><code class=\"css
+      value\">none</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number48 index47 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">clear</code><code class=\"css plain\">: </code><code class=\"css
+      value\">both</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number49 index48 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">width</code><code class=\"css plain\">: </code><code class=\"css
+      value\">100%</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number50 index49 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">margin</code><code class=\"css plain\">: </code><code
+      class=\"css value\">20px</code> <code class=\"css value\">0</code><code class=\"css
+      plain\">;</code></div>\r\n\r\n\t\t\t<div class=\"line number51 index50 alt2\"><code
+      class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class=\"css
+      plain\">}</code></div>\r\n\r\n\t\t\t<div class=\"line number52 index51 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div
+      class=\"line number53 index52 alt2\"><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number54 index53 alt1\"><code class=\"css spaces\">&nbsp;</code><code
+      class=\"css comments\">/*закрываем media query*/</code></div>\r\n\t\t\t</div>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n\r\n<p>Эти
+      наборы правил применяются в случае, когда страница просматривается в окне шириной
+      меньше чем или равной 700 пикселям. Вот их перечень:</p>\r\n\r\n<ul>\r\n\t<li>Растягиваем
+      контент на всю ширину окна и удаляем правый отступ</li>\r\n\t<li>Перемещаем
+      навигационное меню над контентом и растягивает его на всю ширину окна</li>\r\n\t<li>Располагаем
+      навигационные горизонтально, а не вертикально</li>\r\n\t<li>Перемещаем сайдбар
+      под контент и растягиваем его на всю ширину окна</li>\r\n</ul>\r\n\r\n<p><a
+      class=\"demo\" href=\"http://www.elated.com/res/File/articles/authoring/responsive-web-design-demystified/responsive-700.html\">Демо</a></p>\r\n\r\n<p>На
+      рисунке ниже показан новый шаблон с одной колонкой при просмотре в узком окне:</p>\r\n\r\n<p><img
+      alt=\" \" class=\"aligncenter\" src=\"http://naikom.ru/img/2012/allaboutresponsive/9.png\"
+      title=\"Раскрытие тайны адаптивного веб дизайна\" /></p>\r\n\r\n<p><strong>Создав
+      еще один media query, мы можем переделывать наш шаблон снова, как только ширина
+      окна становится менее 700 пикселей. Вот новый шаблон для просмотра в viewport
+      с шириной в 500 пикселей.</strong></p>\r\n\r\n<h4>Адаптация к viewports шириной
+      в 480 или менее пикселей</h4>\r\n\r\n<p>До сих пор мы сжимали наш шаблон на
+      столько, на сколько это было возможно, чтобы вся информация помещалась в одном
+      столбце. Однако, для очень узких окон браузера, таких, как мобильные телефоны,
+      мы можем сделать последнюю оптимизацию: уменьшить или убрать некоторые отступы
+      и поля вокруг элементов страницы.<br />\r\nВот CSS:</p>\r\n\r\n<div>\r\n<div
+      class=\"syntaxhighlighter  css\" id=\"highlighter_446686\">\r\n<table border=\"0\"
+      cellpadding=\"0\" cellspacing=\"0\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td class=\"gutter\">\r\n\t\t\t<div
+      class=\"line number1 index0 alt2\">1</div>\r\n\r\n\t\t\t<div class=\"line number2
+      index1 alt1\">2</div>\r\n\r\n\t\t\t<div class=\"line number3 index2 alt2\">3</div>\r\n\r\n\t\t\t<div
+      class=\"line number4 index3 alt1\">4</div>\r\n\r\n\t\t\t<div class=\"line number5
+      index4 alt2\">5</div>\r\n\r\n\t\t\t<div class=\"line number6 index5 alt1\">6</div>\r\n\r\n\t\t\t<div
+      class=\"line number7 index6 alt2\">7</div>\r\n\r\n\t\t\t<div class=\"line number8
+      index7 alt1\">8</div>\r\n\r\n\t\t\t<div class=\"line number9 index8 alt2\">9</div>\r\n\r\n\t\t\t<div
+      class=\"line number10 index9 alt1\">10</div>\r\n\r\n\t\t\t<div class=\"line
+      number11 index10 alt2\">11</div>\r\n\r\n\t\t\t<div class=\"line number12 index11
+      alt1\">12</div>\r\n\r\n\t\t\t<div class=\"line number13 index12 alt2\">13</div>\r\n\r\n\t\t\t<div
+      class=\"line number14 index13 alt1\">14</div>\r\n\r\n\t\t\t<div class=\"line
+      number15 index14 alt2\">15</div>\r\n\r\n\t\t\t<div class=\"line number16 index15
+      alt1\">16</div>\r\n\r\n\t\t\t<div class=\"line number17 index16 alt2\">17</div>\r\n\r\n\t\t\t<div
+      class=\"line number18 index17 alt1\">18</div>\r\n\r\n\t\t\t<div class=\"line
+      number19 index18 alt2\">19</div>\r\n\r\n\t\t\t<div class=\"line number20 index19
+      alt1\">20</div>\r\n\r\n\t\t\t<div class=\"line number21 index20 alt2\">21</div>\r\n\r\n\t\t\t<div
+      class=\"line number22 index21 alt1\">22</div>\r\n\t\t\t</td>\r\n\t\t\t<td class=\"code\">\r\n\t\t\t<div
+      class=\"container\">\r\n\t\t\t<div class=\"line number1 index0 alt2\"><code
+      class=\"css comments\">/* Если ширина окна&nbsp; &lt;= 480px ... */</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number2 index1 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number3 index2 alt2\"><code class=\"css plain\">@media </code><code class=\"css
+      value\">screen</code> <code class=\"css plain\">and (</code><code class=\"css
+      keyword\">max-width</code><code class=\"css plain\">: </code><code class=\"css
+      value\">480px</code><code class=\"css plain\">) {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number4 index3 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number5 index4 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code class=\"css
+      plain\">body {</code></div>\r\n\r\n\t\t\t<div class=\"line number6 index5 alt1\"><code
+      class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class=\"css keyword\">margin</code><code
+      class=\"css plain\">: </code><code class=\"css value\">0</code><code class=\"css
+      plain\">;</code></div>\r\n\r\n\t\t\t<div class=\"line number7 index6 alt2\"><code
+      class=\"css spaces\">&nbsp;&nbsp;</code><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number8 index7 alt1\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number9 index8 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code class=\"css
+      plain\">#header .inner {</code></div>\r\n\r\n\t\t\t<div class=\"line number10
+      index9 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">padding-top</code><code class=\"css plain\">: </code><code
+      class=\"css value\">5px</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number11 index10 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">padding-bottom</code><code class=\"css plain\">: </code><code
+      class=\"css value\">5px</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number12 index11 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div class=\"line number13 index12
+      alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line number14 index13 alt1\"><code
+      class=\"css spaces\">&nbsp;&nbsp;</code><code class=\"css plain\">#header .inner,
+      #content, #nav, #sidebar {</code></div>\r\n\r\n\t\t\t<div class=\"line number15
+      index14 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">margin-bottom</code><code class=\"css plain\">: </code><code
+      class=\"css value\">5px</code><code class=\"css plain\">;</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number16 index15 alt1\"><code class=\"css spaces\">&nbsp;&nbsp;</code><code
+      class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div class=\"line number17 index16
+      alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line number18 index17 alt1\"><code
+      class=\"css spaces\">&nbsp;&nbsp;</code><code class=\"css plain\">#nav ul {</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number19 index18 alt2\"><code class=\"css spaces\">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+      class=\"css keyword\">padding</code><code class=\"css plain\">: </code><code
+      class=\"css value\">5px</code> <code class=\"css value\">7px</code><code class=\"css
+      plain\">;</code></div>\r\n\r\n\t\t\t<div class=\"line number20 index19 alt1\"><code
+      class=\"css spaces\">&nbsp;&nbsp;</code><code class=\"css plain\">}</code></div>\r\n\r\n\t\t\t<div
+      class=\"line number21 index20 alt2\">&nbsp;</div>\r\n\r\n\t\t\t<div class=\"line
+      number22 index21 alt1\"><code class=\"css plain\">}</code></div>\r\n\t\t\t</div>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n\r\n<p>Эти
+      наборы правил убирают белый отступ вокруг края страницы и уменьшают другие белые
+      отступы с 20 пикселей до 5 пикселей, при условии, когда ширина окна уменьшается
+      до 480 или менее пикселей. Они также слегка уменьшают отступы на заголовок и
+      навигационные элементы.<br />\r\nПопробуйте этот шаблон в вашем браузере. Теперь
+      он должен хорошо выглядеть при любой ширине браузера, начиная с 1600 пикселей
+      и заканчивая 320 пикселями.<br />\r\n<a class=\"demo\" href=\"http://www.elated.com/res/File/articles/authoring/responsive-web-design-demystified/responsive-480.html\">Демо</a></p>\r\n\r\n<p>Изображения
+      ниже показывают шаблон, просматриваемый на браузере шириной в 480 пикселей,
+      до и после применения последнего media query.</p>\r\n\r\n<p><img alt=\" \" class=\"aligncenter\"
+      src=\"http://naikom.ru/img/2012/allaboutresponsive/10.png\" title=\"Раскрытие
+      тайны адаптивного веб дизайна\" /></p>\r\n\r\n<p><strong>При ширине окна в 480
+      пикселей, наш шаблон с одной колонкой теряет много ценного места на экране из-за
+      ширины белого поля в 20 пикселей.</strong></p>\r\n\r\n<p><img alt=\" \" class=\"aligncenter\"
+      src=\"http://naikom.ru/img/2012/allaboutresponsive/11.png\" title=\"Раскрытие
+      тайны адаптивного веб дизайна\" /></p>\r\n\r\n<p><strong>Убирая внешние отступы
+      и уменьшая внутренние отступы до 5 пикселей, а также уменьшая отступы на заголовок
+      и навигацию, мы получаем больше места для размещения содержания.</strong></p>\r\n\r\n<h3
+      id=\"viewport-meta-tag\">Работа с мобильными устройствами: viewport meta tag</h3>\r\n\r\n<p>Одной
+      из основных причин для разработки адаптивного шаблона, который хорошо работает
+      как на больших, так и на маленьких экранах, конечно, является желание сделать
+      ваш сайт более подходящим для просмотра на мобильных устройствах. Так как же
+      выглядит наш новый адаптивный шаблон, например, на iPhone? Посмотрите изображение
+      ниже:</p>\r\n\r\n<p><img alt=\" \" class=\"aligncenter\" src=\"http://naikom.ru/img/2012/allaboutresponsive/12.png\"
+      title=\"Раскрытие тайны адаптивного веб дизайна\" /></p>\r\n\r\n<p><strong>На
+      iPhone наш адаптивный шаблон ведет себя так, будто ширина окна чуть менее 1000
+      пикселей, а не 320 пикселей. Почему?</strong></p>\r\n\r\n<p>Как вы можете видеть,
+      браузер iPhone уменьшил масштаб страницы, что делает текст маленьким и трудно
+      читаемым. В данном случае сработал наш media query на &laquo;1000 или менее
+      пикселей&raquo; &mdash; он уменьшил страницу до двух колонок, вместо трех, но
+      при этом media query на &laquo;480 или менее пикселей&raquo; не запускается,
+      хотя ширина экрана iPhone составляет всего 320px при вертикальном режиме и 480px
+      &mdash; при горизонтальном. Что происходит?<br />\r\n<em class=\"info\">Размеры
+      retina-дисплеев iPhone 4 с высокой четкостью изображения составляют 640&times;960,
+      а не 320&times;480. Тем не менее, из соображений совместимости, эти устройства
+      по-прежнему сообщают о своих размерах экранов как о 320&times;480 пикселей,
+      с точки зрения CSS. </em><br />\r\nОтвет заключается в трудноуловимом различии
+      между окном и экраном мобильных устройств, которое вы кратко изучали ранее в
+      разделе <a href=\"http://naikom.ru/blog/archives/5566#ponimanie-media-queries\">Понимание
+      media queries</a>.<br />\r\niPhone, как и большинство мобильных браузеров, использует
+      виртуальное окно, которое больше по размерам, чем физический экран. Это позволяет
+      мобильным браузерам отображать веб-страницы, предназначенные для больших окон
+      браузеров рабочих столов. Первоначально окно масштабируется таким образом, чтобы
+      вся страница помещалась на экран. Затем пользователь может потянуть или дважды
+      нажать на конкретную область окна, чтобы увеличить ее.<br />\r\nОкно iPhone
+      шириной 980px прекрасно работает для большинства веб-сайтов, которые предназначены
+      для просмотра на рабочем столе с разрешением монитора 1024&times;768. Вот почему
+      наш media query &laquo;1000 или менее пикселей&raquo; запускается на iPhone.
+      Тем не менее, мы создали реагирующий шаблон, который разработан специально,
+      чтобы адаптироваться к маленьким экранам, со страницей, увеличенной до полного
+      ее размера. Как мы можем сказать iPhone, что он должны использовать окно с шириной
+      в 320 или 480 пикселей, что будет соответствовать размеру экрана, а не их виртуальному
+      окну с шириной в 980 пикселей?<br />\r\n<strong>Вот тут-то и вступает в дело
+      мета-тег viewport</strong>. Добавив этот тег для области head, можно управлять
+      размером окна мобильного браузера.<br />\r\nВ нашем случае мы хотим, чтобы ширина
+      окна соответствовала ширине экрана устройства, и чтобы соблюдалось соотношение
+      1:1 между CSS пикселями страницы и пикселями экрана устройства. Мы можем сделать
+      это с помощью двух значений в тегах viewport: первоначальный масштаб initial-scale
+      и максимальный масштаб maximum-scale. Вот как это сделать:</p>\r\n\r\n<div>\r\n<div
+      class=\"syntaxhighlighter  xml\" id=\"highlighter_557949\">\r\n<table border=\"0\"
+      cellpadding=\"0\" cellspacing=\"0\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td class=\"gutter\">\r\n\t\t\t<div
+      class=\"line number1 index0 alt2\">1</div>\r\n\t\t\t</td>\r\n\t\t\t<td class=\"code\">\r\n\t\t\t<div
+      class=\"container\">\r\n\t\t\t<div class=\"line number1 index0 alt2\"><code
+      class=\"xml plain\">&lt;</code><code class=\"xml keyword\">meta</code> <code
+      class=\"xml color1\">name</code><code class=\"xml plain\">=</code><code class=\"xml
+      string\">&quot;viewport&quot;</code> <code class=\"xml color1\">content</code><code
+      class=\"xml plain\">=</code><code class=\"xml string\">&quot;initial-scale=1,
+      maximum-scale=1&quot;</code> <code class=\"xml plain\">/&gt;</code></div>\r\n\t\t\t</div>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n\r\n<ul>\r\n\t<li>initial-scale
+      = 1 &mdash; этот показатель гарантирует, что страница, при самом первом ее просмотре
+      будет полностью увеличена так, чтобы ширина окна совпадала с шириной экрана
+      устройства при вертикальном режиме &mdash; например, 320 пикселей на iPhone
+      и 768 пикселей на IPad.</li>\r\n\t<li>maximum-scale = 1 &mdash; этот показатель
+      предотвращает увеличение масштаба страницы больше, чем при соотношении 1:1 в
+      дальнейшем, даже при повороте в горизонтальный режим. Другими словами, этот
+      показатель заставляет iPhone увеличить ширину окна до 480px в горизонтальном
+      режиме. Если мы не включим максимальную величину масштаба, то ширина окна будет
+      320px, как в вертикальном режиме, так и в горизонтальном режиме. Иногда это
+      может быть именно то, что вы хотите получить, но в случае нашего адаптивного
+      шаблона такой вариант может стать причиной слишком сильного растягивания содержания
+      в горизонтальном режиме.</li>\r\n</ul>\r\n\r\n<p>Теперь, при просмотре нашей
+      страницы на iPhone в вертикальном режиме, ширина окна составляет 320px. При
+      просмотре в горизонтальном режиме ширина составляет 480px. Это позволяет успешно
+      задействовать наш media query &laquo;480 или менее пикселей&raquo;, как вы можете
+      видеть на изображении ниже:</p>\r\n\r\n<p><img alt=\" \" class=\"aligncenter\"
+      src=\"http://naikom.ru/img/2012/allaboutresponsive/13.png\" title=\"Раскрытие
+      тайны адаптивного веб дизайна\" /></p>\r\n\r\n<p><strong>С помощью мета-тега
+      viewport вместе со значениями initial-scale и maximum-scale, мы можем убедить
+      мобильные браузеры сопоставить ширину их шириной окна устройства, тем самым
+      создавая правильный media query.</strong><br />\r\nЕсли у вас есть мобильные
+      устройства, такие как iPhone, IPad или телефон Android, вы можете посмотреть</p>\r\n\r\n<p><a
+      class=\"demo\" href=\"http://www.elated.com/res/File/articles/authoring/responsive-web-design-demystified/responsive-480-meta.html\">Демо</a><br
+      />\r\n<em class=\"info\">Вы также можете точно контролировать ширину окна, используя
+      значения, такие как width=500 (для 500px) и width=device-width (для ширины экрана
+      устройства в вертикальном режиме). В зависимости от типа вашего шаблона, строгая
+      настройка ширины может лучше вам подойти. Смотрите <a href=\"http://developer.apple.com/library/IOS/#documentation/AppleApplications/Reference/SafariWebContent/UsingtheViewport/UsingtheViewport.html#//apple_ref/doc/uid/TP40006509-SW26\">Safari
+      Web Content Guide</a> для получения дополнительной информации.</em></p>\r\n\r\n<h3>Резюме</h3>\r\n\r\n<p>В
+      этой статье вы изучили концепцию адаптивного веб-дизайна и опробовали несколько
+      способов создания адаптивного дизайна. Что вы узнали:</p>\r\n\r\n<ul>\r\n\t<li><strong>Основная
+      идея адаптивного веб-дизайна</strong>: создание сайтов, которые легко приспосабливаются
+      к различным размерам экранов и устройств.</li>\r\n\t<li>Трудноуловимое различие
+      между терминами <strong>&laquo;адаптивный веб-дизайн&raquo; и &laquo;адаптивный
+      веб-дизайн&raquo;</strong>.</li>\r\n\t<li>Как конвертировать <strong>стандартный
+      резиноый шаблон в адаптивный шаблон</strong>, который адаптируется к различным
+      размерам браузера.</li>\r\n\t<li><strong>CSS media queries</strong> и их роль
+      в адаптивных шаблонах.</li>\r\n\t<li>Как установить размер окна мобильного браузера
+      с помощью <strong>мета-тега viewport</strong>.</li>\r\n</ul>\r\n\r\n<p>Я надеюсь,
+      что статья оказалась вам полезной, и что она раскрыла некоторые тайны адаптивного
+      веб-дизайна. Удачи!</p>\r\n"
+    - 1
+    - '2015-12-22 19:54:46.010210'
+    - '2015-12-22 19:54:46.010210'
+    - 
+    - pending_review
+    - false
+    - 
 
 ---
 topics:
@@ -142,14 +1415,28 @@ topics:
     - "Форум находится в стадии разработки.Все ошибки и предложения просьба оставлять
       здесь"
     - '2015-12-20 11:30:23.341422'
-    - '2015-12-20 11:30:23.599605'
+    - '2015-12-22 19:52:59.071291'
     - false
     - false
     - false
     - '2015-12-20 11:30:23.231343'
     - pending_review
-    - 1
+    - 26
     - "форум-находится-в-стадии-разработкивсе-ошибки-и-предложения-просьба-оставлять-здесь"
+    - 1
+  - - 150
+    - 16
+    - 1
+    - "Раскрытие тайны адаптивного веб-дизайна"
+    - '2015-12-22 19:54:46.001203'
+    - '2015-12-22 20:02:25.988172'
+    - false
+    - false
+    - false
+    - '2015-12-22 19:54:44.822369'
+    - pending_review
+    - 3
+    - "раскрытие-тайны-адаптивного-веб-дизайна"
     - 1
 
 ---
@@ -182,22 +1469,22 @@ users:
     - "$2a$10$t7UoPgjcCd0EMzBd1vFMl.V9hcqj6OYKnN40Vr3sD0N/HpMY2zNZG"
     - 
     - 
-    - '2015-12-20 11:27:44.146151'
-    - 15
-    - '2015-12-20 11:27:44.259233'
-    - '2015-12-20 08:42:04.953707'
+    - 
+    - 20
+    - '2015-12-22 19:52:41.391740'
+    - '2015-12-22 19:11:40.984213'
     - "::1"
     - "::1"
     - '2015-10-05 19:04:59.411446'
-    - '2015-12-20 11:30:23.235346'
+    - '2015-12-22 19:54:44.855390'
     - "фыв"
     - true
     - 434_154_7.jpg
     - image/jpeg
     - 180065
     - '2015-10-26 12:05:09.110836'
-    - 2
-    - 24
+    - 0
+    - 1
   - - 2
     - 1@1.com
     - "$2a$10$zOGInL5qLB35zsfsTVbN1.3xf58l0M3D.uoIC3LD3Naymhql6Yq/q"
@@ -218,7 +1505,7 @@ users:
     - 
     - 
     - 0
-    - 5
+    - 0
   - - 3
     - 2@2.com
     - "$2a$10$vH4vyqDFKvqoWDXflKGEYeBZT64zEwdZG2aLBB43GFvkoTqc1Ee.S"
@@ -238,8 +1525,8 @@ users:
     - 
     - 
     - 
-    - 1
-    - 6
+    - 0
+    - 0
   - - 4
     - 3@3.com
     - "$2a$10$c3TLMmP1pMUfSb6P5QdXX.9j9qi4DUUENjcxArKasJI3Y4C39VmHC"
@@ -259,8 +1546,8 @@ users:
     - 
     - 
     - 
-    - 2
-    - 7
+    - 0
+    - 0
   - - 5
     - 4@4.com
     - "$2a$10$8j67DRfQ8actJTKdgdrFJ.n9/MFR/UxBkjWBm6yO0ki7ykgkAmPz2"
@@ -281,28 +1568,28 @@ users:
     - 20411
     - '2015-10-26 08:43:07.681142'
     - 0
-    - 
+    - 0
   - - 6
     - 18@18.com
     - "$2a$10$EELU2B7OwEDb/K/rQgAYuuxoZFbZiB2CC5BUQvDC0Bh6XLjxzmLJC"
     - 
     - 
     - 
-    - 2
+    - 3
+    - '2015-12-20 12:38:32.735676'
     - '2015-12-20 10:17:19.099207'
-    - '2015-12-20 08:22:51.695028'
     - "::1"
     - "::1"
     - '2015-12-20 08:22:51.578942'
-    - '2015-12-20 10:17:19.103211'
+    - '2015-12-20 12:38:32.738683'
     - "коромысл"
     - false
     - 
     - 
     - 
     - 
-    - 
-    - 
+    - 0
+    - 0
   - - 7
     - 19@19.com
     - "$2a$10$XaM1UWkWUtBQpz3Eem.qoOFyH3Mw0OG9UTdAd9a4z2IIrz9PO6XN2"
@@ -322,8 +1609,8 @@ users:
     - 
     - 
     - 
-    - 
-    - 
+    - 0
+    - 0
   - - 8
     - 20@20.com
     - "$2a$10$xajNGCt6OqPGh9fe0qRqIuIn1o9bMXUbhXTNCOyi1QVd8AMBHTTx."
@@ -343,8 +1630,8 @@ users:
     - 
     - 
     - 
-    - 
-    - 1
+    - 0
+    - 0
   - - 9
     - 21@21.com
     - "$2a$10$T/6ucZR8tmZNRTXxux4KlOZQ0G.MIP9p1TjJjw1C4BMB0kQdSR6DW"
@@ -364,5 +1651,26 @@ users:
     - 
     - 
     - 
+    - 0
+    - 0
+  - - 10
+    - 123@123.com
+    - "$2a$10$jy1MC0ygNzu4oV4PzuN.l.KhdWJd.681BWBbrWcOeGlUjk8/I2NYS"
+    - 
+    - 
     - 
     - 2
+    - '2015-12-22 19:04:46.488955'
+    - '2015-12-22 18:17:49.473051'
+    - "::1"
+    - "::1"
+    - '2015-12-22 18:17:49.249891'
+    - '2015-12-22 19:04:46.499969'
+    - sd
+    - false
+    - 
+    - 
+    - 
+    - 
+    - 0
+    - 0

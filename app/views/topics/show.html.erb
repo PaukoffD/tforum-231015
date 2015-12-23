@@ -2,8 +2,43 @@
 </br>
 </br>
 </br>
-<table class="table table-striped table-hover ">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    box-sizing: border-box;
+}
+.header {
+    border: 1px solid red;
+    padding: 15px;
+}
+.row:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+    border: 1px solid red;
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+</style>
+</head>
 
+<table class="table table-striped table-hover ">
+<div class="header">
  <thead>
     <tr>
 	 <th width="10%">Author</th>
@@ -16,6 +51,8 @@
       <strong>Topic:</strong>
       <%= @topic.subject %>
      </h3>
+</div>	 
+	 
 	<% if user_signed_in? %>
 	 <%= link_to 'New Topic', new_forum_topic_path(@topic.forum_id), :class => "btn btn-primary" %> 
 	 <%= link_to 'Reply', new_topic_post_path(@topic.id), :class => "btn btn-primary" %> 
@@ -32,6 +69,7 @@
 	 
 	 <div class='icon'><%= image_tag(post.user.avatar.url(:thumb), class: 'avatar') %></div>
 	 </td>
+<div class="col-9">	 
 	<td>
      <strong>Post:</strong>
      <%= markdown(post.text) %>
@@ -42,6 +80,10 @@
   <strong>Last post at:</strong>
   <%= post.created_at %>
 </p>
+</div>
+
+
+
  <% if user_signed_in? %>
    
     <%= link_to 'Reply', new_topic_post_path(@topic.id), :class => "btn btn-primary" %> 
