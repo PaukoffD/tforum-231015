@@ -8,9 +8,9 @@
     <th width="10%">Views</th>
      </tr>
   </thead>
-  <%  @forum.id   %>
+ 
     <tbody>
-  <% for topic in @forum.topics %>
+  <% for topic in @forum.topics.most_resent_post %>
   
     <tr>
       <td><%= link_to h(topic.subject), topic_path(topic.to_param) %>
