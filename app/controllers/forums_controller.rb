@@ -26,6 +26,8 @@ end
   # GET /forums/1
   # GET /forums/1.json
   def show
+  @topics = Topic.order(:created_at).reorder('id DESC').all.page(params[:page])
+  
   end
 
   # GET /forums/new
