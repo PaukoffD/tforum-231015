@@ -10,7 +10,7 @@
   </thead>
  
     <tbody>
-  <% for topic in @forum.topics.most_resent_post %>
+  <% for topic in @forum.topics.order("created_at DESC") %>
   
     <tr>
       <td><%= link_to h(topic.subject), topic_path(topic.to_param) %>

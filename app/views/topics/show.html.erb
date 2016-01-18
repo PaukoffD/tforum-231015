@@ -30,7 +30,7 @@
 	<td>
 	<h4><center><%= link_to post.user.name, user_path(post.user) %> </center></h4>
 	 
-	 <div class='icon'><%= image_tag(post.user.avatar.url(:thumb), class: 'avatar') %></div>
+	 <div class='icon'><center><%= image_tag(post.user.avatar.url(:thumb), class: 'avatar', :size => "80") %></center></div>
 	 </td>
 <div class="col-9">	 
 	<td>

@@ -8,7 +8,7 @@ class Forum < ActiveRecord::Base
  self.per_page = 15
  
  def most_recent_post
-  topic = Topic.order("created_at DESC")
+  topics = Topic.order("created_at DESC")
  return topic
 end
 
