@@ -1,0 +1,70 @@
+
+<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+
+
+ 
+
+	
+
+<!--	<section class="bg-primary" id="forum"> -->
+
+
+  <% @category.each do |category| %>
+    <div class="bg-info">
+       
+        <ul class="nav navbar-nav">
+        <h4><li class="info"><%= category.name %><span class="sr-only">(current)</span></li></h4>
+	     </ul>
+	  </div>
+    	 
+  <table class="table  cellspacing='1' table-hover">
+  <thead>
+  <div class="bg-primary">
+    <tr class="success">
+	
+	  <th width="30%">Forum</th>
+	  <th width="70%">Post</th>
+	 
+     </tr>
+  </div>	 
+  </thead>
+
+  
+  
+  
+  <tbody>
+ 
+  <tr class="info">
+   <tr>
+    <% category.forums.each do |forum| %>
+   
+		
+	   
+		  <td><h4><%= link_to h(forum.name), forum_path(forum.to_param) %> </h4>
+
+        <%=h forum.description %></td>
+		
+		<td class="right"><% if forum.last_topic %>
+		<h4><%= link_to h(forum.last_topic.subject), topic_path(forum.last_topic.slug) %> </h4>
+		
+		<%= distance_of_time_in_words_to_now forum.last_topic.last_post_at %> ago by 
+		<%= link_to forum.last_topic_user, user_path(forum.last_topic.user_id) %>
+		<% else %>no posts<% end %></td>
+		
+		     
+	  	</nav>
+      </tr>
+	 
+    <% end %>
+
+	
+  </tbody>
+</table>
+ <% end %>
+
+<% if user_signed_in? %>
+ <% if current_user.admin %>
+  <%= link_to 'New Forum', new_forum_path, :class => "btn btn-primary" %>
+ <% end %> 
+<% end %>
+</section>
