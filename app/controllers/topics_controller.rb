@@ -17,7 +17,7 @@ end
   
 def top
     #count = Post.where(topic_id: @topic.id).count
-    @topics = Topic.order('views_count DESC').all.page(params[:page])
+    @topics = Topic.order(views_count: :DESC).all.page(params[:page])
     #topic=Topic.order(:created_at).reorder('id DESC').last
 	#@forum = Forum.find(topic.forum_id)
 	

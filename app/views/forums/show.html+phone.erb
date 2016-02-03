@@ -1,0 +1,30 @@
+<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+<table class="table">
+
+ <thead>
+    <tr>
+	<th width="99%">Topic Title</th>
+    
+   
+     </tr>
+  </thead>
+ 
+    <tbody>
+  <% for topic in @forum.topics.order("created_at DESC") %>
+  
+    <tr>
+      <td><%= link_to h(topic.subject), topic_path(topic.to_param) %>
+	  
+	  </br>
+	  <h6>Created: by <%= link_to topic.author.name, user_path(topic.author) %>    <%= distance_of_time_in_words_to_now topic.last_post_at %> ago </h6>
+	  
+	  </h5></td>
+      
+    </tr>
+  <% end %>
+   </tbody>
+</table>
+
+<% if user_signed_in? %>
+  <p><%= link_to "New Topic", new_forum_topic_path(@forum.id), :class => "btn btn-primary" %></p>
+<% end %>
