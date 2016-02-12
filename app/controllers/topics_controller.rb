@@ -43,7 +43,7 @@ def top
   end
 
   def search
-  @topic = Topic.friendly.find(params[:id])
+    @topic = Topic.friendly.find(params[:id])
     #@articles = this_blog.articles_matching(params[:q], page: params[:page], per_page: this_blog.per_page(params[:format]))
     #return error! if @articles.empty?
     #@page_title = this_blog.search_title_template.to_title(@articles, this_blog, params)

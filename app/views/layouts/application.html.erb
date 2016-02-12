@@ -61,7 +61,14 @@
     <ul class="nav navbar-nav">
        <li><%= link_to " Latest", latest_path %><span class="sr-only">(current)</span></a></li>
        <li><%= link_to "TOP", top_path %><span class="sr-only">(current)</span></a></li>
-	   <li class="right"><%= link_to 'Search', search_path %><span class="sr-only">(current)</span></button></li>
+	   <li>
+        <input type="text" class="form-control" placeholder="Search Blog..">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+     </li>
      </ul>
     
    
