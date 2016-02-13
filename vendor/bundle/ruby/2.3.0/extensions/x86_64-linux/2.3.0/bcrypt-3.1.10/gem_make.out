@@ -1,0 +1,19 @@
+current directory: /var/www/paukoff.ru/tforum-231015/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.10/ext/mri
+/usr/local/rvm/rubies/ruby-2.3.0/bin/ruby -r ./siteconf20160211-31080-14xfai0.rb extconf.rb
+creating Makefile
+
+current directory: /var/www/paukoff.ru/tforum-231015/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.10/ext/mri
+make "DESTDIR=" clean
+
+current directory: /var/www/paukoff.ru/tforum-231015/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.10/ext/mri
+make "DESTDIR="
+compiling crypt_gensalt.c
+compiling crypt_blowfish.c
+compiling wrapper.c
+compiling crypt.c
+compiling bcrypt_ext.c
+linking shared-object bcrypt_ext.so
+
+current directory: /var/www/paukoff.ru/tforum-231015/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.10/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -m 0755 bcrypt_ext.so ./.gem.20160211-31080-wa6nqq
