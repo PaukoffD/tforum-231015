@@ -4,7 +4,8 @@ before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
 
 def normalize_friendly_id(string)
-    string.to_slug.normalize.to_s
+    #string.to_slug.normalize.to_s
+	string.to_slug.normalize(transliterations: :russian).to_s
 end 
 
   def index
