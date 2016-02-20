@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
+   <%= yield(:search) %>
   <title>Клуб любителей чая - <%= yield :title %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -62,14 +62,22 @@
     <ul class="nav navbar-nav">
        <li><%= link_to " Latest", latest_path %><span class="sr-only">(current)</span></a></li>
        <li><%= link_to "TOP", top_path %><span class="sr-only">(current)</span></a></li>
+	   
+	   
+	   
+	   
 	   <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Поиск">
+          <input type="search" class="form-control" placeholder="Поиск">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default"><%= link_to "Submit", search_path %></button>
       </form>
      </ul>
     
+	
+	
+	
+	
    
     <ul class="nav navbar-nav navbar-right">
                          
@@ -112,6 +120,7 @@
 
           <div class="container">
               <%= yield %>
+			 
           </div>
 
      

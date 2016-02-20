@@ -9,8 +9,9 @@ def normalize_friendly_id(string)
 end 
 
   def index
-   
-    @topics = Topic.order(:created_at).reorder('id DESC').all.page(params[:page])
+    @search = Topic.search(params[:q])
+	
+    @topics = @search.result.order(:created_at).reorder('id DESC').all.page(params[:page])
     #topic=Topic.order(:created_at).reorder('id DESC').last
 	#@forum = Forum.find(topic.forum_id)
 	
@@ -28,7 +29,7 @@ def top
     #count = Post.where(topic_id: @topic.id).count
     @topics = Topic.order('views_count DESC').all.page(params[:page])
     #topic=Topic.order(:created_at).reorder('id DESC').last
-	#@forum = Forum.find(topic.forum_id)
+	#@forum = Forum.friendly.find(params[:id])
 	
   end
  
@@ -122,6 +123,7 @@ def top
   # PATCH/PUT /topics/1
   # PATCH/PUT /topics/1.json
   def update
+    @topic.slug= normalize_friendly_id(@topic.subject)
     respond_to do |format|
       if @topic.update(topic_params)
         format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
