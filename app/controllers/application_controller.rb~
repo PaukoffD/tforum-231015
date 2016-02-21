@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
 
 
   def set_global_search_variable
-    @q = Topic.search(params[:q])
+    @q = Bucket.search(params[:q])
   end
 		
 end

@@ -106,17 +106,6 @@ ActiveRecord::Schema.define(version: 20151229113507) do
     t.text     "summary"
   end
 
-  create_table "private_posts", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "topic"
-    t.text     "text"
-    t.integer  "user_id_sent"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-    t.string   "state",        default: "pending_review"
-    t.boolean  "notified",     default: false
-  end
-
   create_table "topics", force: :cascade do |t|
     t.integer  "forum_id"
     t.integer  "user_id"

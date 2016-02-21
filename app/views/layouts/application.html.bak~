@@ -63,7 +63,11 @@
        <li><%= link_to " Latest", latest_path %><span class="sr-only">(current)</span></a></li>
        <li><%= link_to "TOP", top_path %><span class="sr-only">(current)</span></a></li>
 
-
+<% search_form_for @q, url: search_path, html: { method: :post }  do |f| %>
+      <%= f.label :name_cont %>
+      <%= f.search_field :topic_subject_name_cont %>
+      <%= f.submit %>
+    <% end %>
 	   
 	   
 	   
