@@ -46,6 +46,10 @@ def top
 
   def search
     @topic = Topic.friendly.find(params[:id])
+
+    index
+    render :index
+ 
     #@articles = this_blog.articles_matching(params[:q], page: params[:page], per_page: this_blog.per_page(params[:format]))
     #return error! if @articles.empty?
     #@page_title = this_blog.search_title_template.to_title(@articles, this_blog, params)
@@ -72,19 +76,7 @@ def top
   def create
  @topic = Topic.new(topic_params)
 
-	#topic_params.merge
-	# if @topic.save
-    #@topic = Topic.new(:name => params[:topic][:name], :last_post_at => Time.now, :forum_id => params[:topic][:forum_id])
- 
-    #if @post.save
-   #   flash[:notice] = "Successfully created topic."
-    # redirect_to forum_topics_path(:forum_id)
-    #else
-   #   redirect :action => 'new'
-   # end
-  #else
-   # render :action => 'new'
-  #end
+
 	@user = User.find(current_user.id)
 	
 	
@@ -94,6 +86,7 @@ def top
 	
 	@topic.user_id = current_user.id
 	@topic.last_id = current_user.id
+loa
 	#@topic.forum_id = params[:forum_id]
 	puts @topic.forum_id
 	#@post.content = params[:topic][:posts_attributes][:content]

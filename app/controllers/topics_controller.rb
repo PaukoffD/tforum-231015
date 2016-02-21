@@ -76,19 +76,7 @@ def top
   def create
  @topic = Topic.new(topic_params)
 
-	#topic_params.merge
-	# if @topic.save
-    #@topic = Topic.new(:name => params[:topic][:name], :last_post_at => Time.now, :forum_id => params[:topic][:forum_id])
- 
-    #if @post.save
-   #   flash[:notice] = "Successfully created topic."
-    # redirect_to forum_topics_path(:forum_id)
-    #else
-   #   redirect :action => 'new'
-   # end
-  #else
-   # render :action => 'new'
-  #end
+
 	@user = User.find(current_user.id)
 	
 	
@@ -98,6 +86,7 @@ def top
 	
 	@topic.user_id = current_user.id
 	@topic.last_id = current_user.id
+
 	#@topic.forum_id = params[:forum_id]
 	puts @topic.forum_id
 	#@post.content = params[:topic][:posts_attributes][:content]
