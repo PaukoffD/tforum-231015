@@ -2,7 +2,7 @@
 <html>
 <head>
    <%= yield(:search) %>
-  <title>Клуб любителей чая - <%= yield :title %></title>
+  <title><%= yield :title %> | Клуб любителей чая </title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -130,6 +130,11 @@
 
 </body>
 <footer class="footer">
+<!--
+ <ul class="nav navbar-nav navbar-left">
+      <li><%= link_to 'Карта сайта', sitemap_path %></li>
+ </ul>	  -->
+
 <div class="panel-footer nav navbar-nav navbar-right">
 <!-- Yandex.Metrika informer -->
 <a href="https://metrika.yandex.ru/stat/?id=34478010&amp;from=informer"

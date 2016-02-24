@@ -15,10 +15,13 @@ Rails.application.routes.draw do
    resources :private_posts 
  end  
 
+ 
+ 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount Ckeditor::Engine => '/ckeditor'
 
    root 'forums#index'
+   get 'sitemap' => 'forums#sitemap'
    get 'latest', to: 'topics#index'
    get 'search', to: 'topics#index', via: [:get, :post], as: :search
    get 'top', to: 'topics#top'

@@ -4,8 +4,16 @@ class ForumsController < ApplicationController
 def normalize_friendly_id(string)
     string.to_slug.normalize.to_s
 end
-  # GET /forums
-  # GET /forums.json
+
+def sitemap
+  respond_to do |format|
+    format.xml { render file: 'public/sitemaps/sitemap.xml' }
+    format.html { redirect_to root_url }
+  end
+end
+
+
+  
   
  def tools
     @categories= Category.all
