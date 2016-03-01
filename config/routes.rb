@@ -28,4 +28,5 @@ Rails.application.routes.draw do
    get 'tools', to: 'tools#index'
    get 'forumtools', to: 'forums#tools'
    get 'indextopic', to: 'topics#indextopic'
+   get 'tags/:tag', to: 'topics#index', as: :tag
 end

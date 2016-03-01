@@ -6,6 +6,7 @@ has_many :posts, :dependent => :destroy
 accepts_nested_attributes_for :posts
 extend FriendlyId
   friendly_id :subject, use: :slugged
+acts_as_taggable
 
 self.per_page = 15
 

@@ -9,9 +9,16 @@ def normalize_friendly_id(string)
 end 
 
   def index
+  if params[:tag]
+    @topics  = Topic.tagged_with(params[:tag]).page(params[:page])
+  else
     @search = Topic.search(params[:q])
 	
     @topics = @search.result.order(:created_at).reorder('id DESC').all.page(params[:page])
+  end
+  
+  
+   
     #topic=Topic.order(:created_at).reorder('id DESC').last
 	#@forum = Forum.find(topic.forum_id)
 	

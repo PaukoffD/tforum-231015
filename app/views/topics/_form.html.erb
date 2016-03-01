@@ -6,6 +6,10 @@
    <%= f.error_notification %>
   <%=  f.input :subject, label: "Topic title: " %>
   <%= f.hidden_field :forum_id, :value => @forum.id %>
+  <div class="field">
+   <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+   <%= f.text_field :tag_list %>
+   </div>
   
    <%= f.simple_fields_for :posts do |q| %>
     <%= q.hidden_field :user_id, :value => current_user.id %>

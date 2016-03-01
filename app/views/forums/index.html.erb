@@ -75,6 +75,15 @@
 </table>
  <% end %>
 
+ <div id="tag_cloud">
+  <% tag_cloud Topic.tag_counts, %w{s m l} do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+</br> 
+ 
+ 
+ 
 <% if user_signed_in? %>
  <% if current_user.admin %>
   <%= link_to 'New Forum', new_forum_path, :class => "btn btn-primary" %>
