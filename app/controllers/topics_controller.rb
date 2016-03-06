@@ -95,7 +95,7 @@ def top
 	@topic.last_id = current_user.id
 
 	#@topic.forum_id = params[:forum_id]
-	puts @topic.forum_id
+	
 	#@post.content = params[:topic][:posts_attributes][:content]
 	@post.topic_id=@topic.id
 	@post.user_id = current_user.id
@@ -124,6 +124,7 @@ def top
   # PATCH/PUT /topics/1.json
   def update
     @topic.slug= normalize_friendly_id(@topic.subject)
+	@topic.save
     respond_to do |format|
       if @topic.update(topic_params)
         format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }

@@ -1,6 +1,12 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  
+  
+  def normalize_friendly_id(string)
+    #string.to_slug.normalize.to_s
+	string.to_slug.normalize(transliterations: :russian).to_s
+  end 
   # GET /posts
   # GET /posts.json
   def index
@@ -61,6 +67,9 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+   @topic = Topic.friendly.find(@post.topic_id)
+   @topic.slug= normalize_friendly_id(@topic.subject)
+   @topic.save
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
