@@ -12,7 +12,7 @@
     <tbody>
   <% for topic in @topics.includes(:posts, :author, :last_user) %>
     <tr>
-      <td><h5><%= link_to h(topic.subject), topic_path(topic.to_param),title: topic.subject %>
+      <td><h5><%= link_to h(topic.subject), topic_path(topic.to_param) %>
 	  </br>
 	  <h6>Created: by <%= link_to topic.author.name, user_path(topic.author) %>    <%= distance_of_time_in_words_to_now topic.last_post_at %> ago </h6>
 	  <p>Tags: <%= raw topic.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>

@@ -47,7 +47,7 @@
         <%=h forum.description %></td>
 		
 		<td class="right"><% if forum.last_topic %>
-		<h4><%= link_to h(forum.last_topic.subject),  topic_path(forum.last_topic.slug),title: forum.last_topic.subject   %>  </h4>
+		<h4><%= link_to h(forum.last_topic.subject),  topic_path(forum.last_topic.slug),title: forum.last_topic.subject  ) %>  </h4>
 		
 		<%= distance_of_time_in_words_to_now forum.last_topic.last_post_at %> ago by 
 		<%= link_to forum.last_topic_user, user_path(forum.last_topic.user_id) %>
