@@ -3,7 +3,7 @@
 
  <thead>
     <tr>
-	<th width="80%">Topic Title</th>
+    <th width="80%">Topic Title</th>
     <th width="10%">Replies</th>
     <th width="10%">Views</th>
      </tr>
@@ -13,7 +13,7 @@
   <% for topic in @forum.topics.order("created_at DESC") %>
   
     <tr>
-      <td><%= link_to h(topic.subject), topic_path(topic.to_param),title: forum.topic.subject %>
+      <td><%= link_to h(topic.subject), topic_path(topic.to_param),title: topic.subject %>
 	  
 	  </br>
 	  <h6>Created: by <%= link_to topic.author.name, user_path(topic.author) %>    <%= distance_of_time_in_words_to_now topic.last_post_at %> ago </h6>

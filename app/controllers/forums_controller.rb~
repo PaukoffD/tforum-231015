@@ -34,20 +34,21 @@ end
   # GET /forums/1
   # GET /forums/1.json
   def show
-  @topics = Topic.includes(:author).order(:created_at).reorder('id DESC').all.page(params[:page])
+  @topics = Topic.order(:created_at).reorder('id DESC').all.page(params[:page])
   
   end
 
- 
+  # GET /forums/new
   def new
     @forum = Forum.new
   end
 
-  
+  # GET /forums/1/edit
   def edit
   end
 
- 
+  # POST /forums
+  # POST /forums.json
   def create
     @forum = Forum.new(forum_params)
 	@forum.slug= normalize_friendly_id(@forum.name)
