@@ -23,7 +23,7 @@ Rails.application.routes.draw do
    root 'forums#index'
    get 'sitemap' => 'forums#sitemap'
    get 'latest', to: 'topics#index'
-   get 'search', to: 'topics#index', via: [:get, :post], as: :search
+   get 'search', to: 'topics#index',  as: :search
    get 'top', to: 'topics#top'
    get 'tools', to: 'tools#index'
    get 'forumtools', to: 'forums#tools'
