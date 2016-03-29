@@ -12,9 +12,9 @@ end
   if params[:tag]
     @topics  = Topic.tagged_with(params[:tag]).page(params[:page])
   else
-    @search = Topic.search(params[:q])
+   # @search = Topic.search(params[:q])
 	
-    @topics = @search.result.order(:created_at).reorder('id DESC').all.page(params[:page])
+    @topics = Topic.order(:created_at).reorder('id DESC').all.page(params[:page])
   end
   
   
