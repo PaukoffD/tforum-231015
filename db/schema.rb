@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301103149) do
+ActiveRecord::Schema.define(version: 20160330091211) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -86,6 +86,16 @@ ActiveRecord::Schema.define(version: 20160301103149) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "identities", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id"
+
   create_table "memberships", force: :cascade do |t|
     t.integer  "forum_id"
     t.integer  "group_id"
@@ -104,6 +114,17 @@ ActiveRecord::Schema.define(version: 20160301103149) do
     t.string   "state",       default: "pending_review"
     t.boolean  "notified",    default: false
     t.text     "summary"
+  end
+
+  create_table "private_posts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "topic"
+    t.text     "text"
+    t.integer  "user_id_sent"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "state",        default: "pending_review"
+    t.boolean  "notified",     default: false
   end
 
   create_table "taggings", force: :cascade do |t|
