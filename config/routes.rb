@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   
  
   resources :categories
+  resources :groups
   resources :forums do 
    resources :topics , shallow: true do
     resources :posts, shallow: true
