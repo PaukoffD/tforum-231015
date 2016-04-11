@@ -33,4 +33,6 @@ Rails.application.routes.draw do
    get 'forumtools', to: 'forums#tools'
    get 'indextopic', to: 'topics#indextopic'
    get 'tags/:tag', to: 'topics#index', as: :tag
+   get 'addingroup', to: 'groups#add'
+   get 'hidden_forum', to: 'groups#hidden'
 end

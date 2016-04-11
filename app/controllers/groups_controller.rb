@@ -1,6 +1,19 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
+  
+def add
+  @group = Group.find(params[:format])
+ # user = User.all.map { |user| [user.name] }
+end
+
+def hidden
+  
+end
+
+
+
+
   # GET /groups
   # GET /groups.json
   def index
@@ -39,6 +52,12 @@ class GroupsController < ApplicationController
 
   
   def update
+    
+    member=Membership.new
+    member.group_id=params[:id]
+    member.user_id=params[:group]['user_ids'][1]
+    member.save
+    #loa
     respond_to do |format|
       if @group.update(group_params)
         format.html { redirect_to @group, notice: 'group was successfully updated.' }
@@ -68,5 +87,6 @@ class GroupsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
       params.require(:group).permit!
+     
     end
 end

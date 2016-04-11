@@ -25,6 +25,9 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(category_params)
+    
+
+    @category.hidden=true if params[:category]['hidden']
 
     respond_to do |format|
       if @category.save
@@ -40,6 +43,7 @@ class CategoriesController < ApplicationController
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
   def update
+    @category.hidden=true if params[:category]['hidden']
     respond_to do |format|
       if @category.update(category_params)
         format.html { redirect_to @category, notice: 'Category was successfully updated.' }
