@@ -52,11 +52,13 @@ end
 
   
   def update
-    
-    member=Membership.new
-    member.group_id=params[:id]
-    member.user_id=params[:group]['user_ids'][1]
-    member.save
+    #loa
+    @group = Group.find(params[:id])
+   # user = @group.users.build
+    user=User.find(params[:group]['user_ids'][1])
+   # user.save
+	#@group.save
+	@group.users << user
     #loa
     respond_to do |format|
       if @group.update(group_params)
