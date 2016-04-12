@@ -8,7 +8,7 @@
 
 <!--	<section class="bg-primary" id="forum"> -->
 
-
+<% if ((user_signed_in?) && @group.users.ids.include?(current_user.id)) %>
   <% @category.includes(:forums).each do |cat| %>
     <div class="bg-info">
        
@@ -40,7 +40,7 @@
    <tr>
    
    
-		
+	
 	   <% for i in 0..cat.forums.length-1 %>
 	       <td><h4><%= link_to h(cat.forums[i].name), forum_path(cat.forums[i].to_param) %> </h4>
 
@@ -81,7 +81,7 @@
   <% end %>
 </div>
 </br> 
- 
+ <% end %>
  
  
 <% if user_signed_in? %>

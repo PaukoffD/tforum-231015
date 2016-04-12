@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412141846) do
+ActiveRecord::Schema.define(version: 20160412094424) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -129,17 +129,6 @@ ActiveRecord::Schema.define(version: 20160412141846) do
     t.string   "state",       default: "pending_review"
     t.boolean  "notified",    default: false
     t.text     "summary"
-  end
-
-  create_table "private_posts", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "topic"
-    t.text     "text"
-    t.integer  "user_id_sent"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-    t.string   "state",        default: "pending_review"
-    t.boolean  "notified",     default: false
   end
 
   create_table "taggings", force: :cascade do |t|

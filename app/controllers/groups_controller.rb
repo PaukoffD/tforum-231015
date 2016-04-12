@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   
 def add
   @group = Group.find(params[:format])
- # user = User.all.map { |user| [user.name] }
+ 
 end
 
 def hidden
@@ -52,14 +52,14 @@ end
 
   
   def update
-    #loa
-    @group = Group.find(params[:id])
-   # user = @group.users.build
-    user=User.find(params[:group]['user_ids'][1])
-   # user.save
-	#@group.save
-	@group.users << user
-    #loa
+    
+    if params[:group][:category_ids]
+     @group = Group.find(params[:id])
+     @group.users << User.find(params[:group]['user_ids'][1])
+     params.fetch(:group)['user_ids']+=@group.users.ids
+     @category=Category.find(params[:group][:category_ids][1])
+     @category.groups<<@group
+    end
     respond_to do |format|
       if @group.update(group_params)
         format.html { redirect_to @group, notice: 'group was successfully updated.' }
