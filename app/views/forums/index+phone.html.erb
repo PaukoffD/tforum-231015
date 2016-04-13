@@ -8,12 +8,12 @@
 
 <!--	<section class="bg-primary" id="forum"> -->
 
-
-  <% @category.each do |category| %>
-    <div class="bg-info">
+<% if ((user_signed_in?) && @group.users.ids.include?(current_user.id)) %>
+  <% @category.includes(:forums).hidden.each do |cat| %>
+     <div class="bg-info">
        
         <ul class="nav navbar-nav">
-        <h4><li class="info"><%= category.name %><span class="sr-only">(current)</span></li></h4>
+        <h4><li class="info"><%= cat.name %><span class="sr-only">(current)</span></li></h4>
 	     </ul>
 	  </div>
     	 
@@ -36,31 +36,98 @@
  
   <tr class="info">
    <tr>
-    <% category.forums.each do |forum| %>
-   
-		
-	   
-		  <td><h4><%= link_to h(forum.name), forum_path(forum.to_param) %> </h4>
+     <% for i in 0..cat.forums.length-1 %>
+    <td><h4><%= link_to h(cat.forums[i].name), forum_path(cat.forums[i].to_param) %> </h4>
 
-        <%=h forum.description %></td>
+                <%= cat.forums[i].description %></td>
 		
-		<td class="right"><% if forum.last_topic %>
-		<h4><%= link_to h(forum.last_topic.subject), topic_path(forum.last_topic.slug) %> </h4>
+		<td class="right">
+		<% if cat.forums[i].last_topic %>
+		<h4><%= link_to h(cat.forums[i].last_topic.subject),  topic_path(cat.forums[i].last_topic.slug),title: cat.forums[i].last_topic.subject   %>  </h4>
 		
-		<%= distance_of_time_in_words_to_now forum.last_topic.last_post_at %> ago by 
-		<%= link_to forum.last_topic_user, user_path(forum.last_topic.user_id) %>
+		<%= distance_of_time_in_words_to_now cat.forums[i].last_topic.last_post_at %> ago by 
+		<%= link_to cat.forums[i].last_topic_user, user_path(cat.forums[i].last_topic.user_id) %>
 		<% else %>no posts<% end %></td>
 		
-		     
+		<td class="right">
+		<h4><span class="badge"><%= cat.forums[i].topics.count %></span></a> topics</h4>
+		</td>
+		
+		<td class="right">
+		<h4><span class="badge"><%= cat.forums[i].count_post-cat.forums[i].topics.count %></span></a> replies</h4>
+		</td>
+		
+		<td class="right">
+		<h4><span class="badge"><%= cat.forums[i].count_reply %></span></a> views</h4>
+		</td>
+     
 	  	</nav>
       </tr>
-	 
-    <% end %>
-
 	
+    <% end %>
   </tbody>
 </table>
- <% end %>
+<% end %> 
+<% end %> 
+
+ <% @category.includes(:forums).visible.each do |cat| %>
+    <div class="bg-info">
+       
+        <ul class="nav navbar-nav">
+        <h4><li class="info"><%= cat.name %><span class="sr-only">(current)</span></li></h4>
+	     </ul>
+	  </div>
+    	 
+  <table class="table  cellspacing='1' table-hover">
+  <thead>
+  <div class="bg-primary">
+    <tr class="success">
+	
+	  <th width="30%"><%=t :Forum %></th>
+	  <th width="49%">Post</th>
+	  <th width="7%"><%=t :Topics %></th>
+      <th width="7%">Replies</th>
+	  <th width="7%">Views</th>
+     </tr>
+  </div>	 
+  </thead>
+
+  <tbody>
+
+  <tr class="info">
+   <tr>
+	
+	   <% for i in 0..cat.forums.length-1 %>
+	       <td><h4><%= link_to h(cat.forums[i].name), forum_path(cat.forums[i].to_param) %> </h4>
+
+                <%= cat.forums[i].description %></td>
+		
+		<td class="right"><% if cat.forums[i].last_topic %>
+		<h4><%= link_to h(cat.forums[i].last_topic.subject),  topic_path(cat.forums[i].last_topic.slug),title: cat.forums[i].last_topic.subject   %>  </h4>
+		
+		<%= distance_of_time_in_words_to_now cat.forums[i].last_topic.last_post_at %> ago by 
+		<%= link_to cat.forums[i].last_topic_user, user_path(cat.forums[i].last_topic.user_id) %>
+		<% else %>no posts<% end %></td>
+		
+		<td class="right">
+		<h4><span class="badge"><%= cat.forums[i].topics.count %></span></a> topics</h4>
+		</td>
+		
+		<td class="right">
+		<h4><span class="badge"><%= cat.forums[i].count_post-cat.forums[i].topics.count %></span></a> replies</h4>
+		</td>
+		
+		<td class="right">
+		<h4><span class="badge"><%= cat.forums[i].count_reply %></span></a> views</h4>
+		</td>
+     
+	  	</nav>
+      </tr>
+	
+    <% end %>
+  </tbody>
+</table>
+<% end %>
 
 <% if user_signed_in? %>
  <% if current_user.admin %>
