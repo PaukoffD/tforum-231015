@@ -25,7 +25,13 @@ end
   
   
   def index
-    @group=Group.find(1)
+   if Group.last.blank?
+    @group=Group.new
+	@group.name="1"
+	@group.save
+	end
+	
+    @group=Group.last
     @category= Category.all
     @forums = Forum.all
 	  @topic=Topic.last
