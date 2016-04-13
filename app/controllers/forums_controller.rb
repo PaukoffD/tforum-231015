@@ -29,6 +29,7 @@ end
     @category= Category.all
     @forums = Forum.all
 	  @topic=Topic.last
+	  
 	#@topic= Topic.find(most_recent_post)
   end
 
