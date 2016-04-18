@@ -9,12 +9,16 @@ def normalize_friendly_id(string)
 end 
 
   def index
+    @group=Group.last
+    @category= Category.all
+    @forums = Forum.all 
   if params[:tag]
     @topics  = Topic.tagged_with(params[:tag]).page(params[:page])
   else
    # @search = Topic.search(params[:q])
 	
     @topics = Topic.order(:created_at).reorder('id DESC').all.page(params[:page])
+
   end
   
   
@@ -33,6 +37,9 @@ def top
   end
   
   def indextopic
+    @group=Group.last
+    @category= Category.all
+    @forums = Forum.all
     #count = Post.where(topic_id: @topic.id).count
     @topics = Topic.order('views_count DESC').all.page(params[:page])
     #topic=Topic.order(:created_at).reorder('id DESC').last
@@ -93,6 +100,8 @@ def top
 	
 	@topic.user_id = current_user.id
 	@topic.last_id = current_user.id
+  forum=Forum.find(topic_params['forum_id'])
+  @topic.hidden=true if forum.hidden
 
 	#@topic.forum_id = params[:forum_id]
 	

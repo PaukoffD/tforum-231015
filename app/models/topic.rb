@@ -8,6 +8,9 @@ extend FriendlyId
   friendly_id :subject, use: :slugged
 acts_as_taggable
 
+scope :hidden, -> { where :hidden => true } 
+scope :visible, -> { where :hidden => false } 
+
 self.per_page = 15
 
 #def last_topic_user

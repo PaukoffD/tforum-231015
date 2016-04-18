@@ -59,7 +59,9 @@ end
   def create
     @forum = Forum.new(forum_params)
 	@forum.slug= normalize_friendly_id(@forum.name)
-
+  cat=Category.find(forum_params['category_id'])
+  @forum.hidden=true if cat.hidden
+  
     respond_to do |format|
       if @forum.save
         format.html { redirect_to @forum, notice: 'Forum was successfully created.' }
