@@ -39,6 +39,9 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'mailcatcher'
+  gem 'rspec-rails'
+  gem 'selenium-webdriver', '2.35.1'
+  gem 'capybara', '2.2.0'
 end
 
 group :development do
