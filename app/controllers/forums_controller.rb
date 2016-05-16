@@ -25,6 +25,7 @@ end
   
   
   def index
+    # переписать Group.last
    if Group.last.blank?
     @group=Group.new
 	@group.name="1"
