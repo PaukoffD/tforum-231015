@@ -1,8 +1,8 @@
 module ApplicationHelper
-def markdown(text)
+  def markdown(text)
     options = {
-            space_after_headers: true, 
-          }
+      space_after_headers: true
+    }
 
     extensions = {
       autolink:           true,
@@ -14,9 +14,9 @@ def markdown(text)
     markdown = Redcarpet::Markdown.new(renderer, extensions)
 
     markdown.render(text).html_safe
-end
-
- def title(page_title)
-    content_for(:title) { page_title }
   end
+
+  def title(page_title)
+    content_for(:title) { page_title }
+   end
 end

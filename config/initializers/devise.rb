@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
-   config.secret_key = 'cecdf59efbd0b2e8faa5791ca2ad8cc8fd398086f4e40b709b36cc85db5df4a074dfe2f5f6226c1414c87c3d2744fc37a3ce509f534e2a6a10b7087ec0b31afb'
+  config.secret_key = 'cecdf59efbd0b2e8faa5791ca2ad8cc8fd398086f4e40b709b36cc85db5df4a074dfe2f5f6226c1414c87c3d2744fc37a3ce509f534e2a6a10b7087ec0b31afb'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -208,7 +208,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-   config.scoped_views = true
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -259,8 +259,8 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
-  
-  #config.omniauth :facebook, "KEY", "SECRET"
- # config.omniauth :twitter, "	2608258985-xDpjxQJVaG11XZ1gKEGDtqIBHQTumOlwbrprnkM", "Lc1angfo4AeNOOs3YCTYsuMWP87XtDMdboC3IPDxmRd6Q"
-  #config.omniauth :linked_in, "KEY", "SECRET"
+
+  # config.omniauth :facebook, "KEY", "SECRET"
+  # config.omniauth :twitter, "	2608258985-xDpjxQJVaG11XZ1gKEGDtqIBHQTumOlwbrprnkM", "Lc1angfo4AeNOOs3YCTYsuMWP87XtDMdboC3IPDxmRd6Q"
+  # config.omniauth :linked_in, "KEY", "SECRET"
 end

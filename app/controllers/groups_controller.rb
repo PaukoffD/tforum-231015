@@ -1,18 +1,12 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
-  
-def add
-  @group = Group.find(params[:format])
- 
-end
+  def add
+    @group = Group.find(params[:format])
+  end
 
-def hidden
-  
-end
-
-
-
+  def hidden
+  end
 
   # GET /groups
   # GET /groups.json
@@ -50,15 +44,13 @@ end
     end
   end
 
-  
   def update
-    
     if params[:group][:category_ids]
-     @group = Group.find(params[:id])
-     @group.users << User.find(params[:group]['user_ids'][1])
-     params.fetch(:group)['user_ids']+=@group.users.ids
-     @category=Category.find(params[:group][:category_ids][1])
-     @category.groups<<@group
+      @group = Group.find(params[:id])
+      @group.users << User.find(params[:group]['user_ids'][1])
+      params.fetch(:group)['user_ids'] += @group.users.ids
+      @category = Category.find(params[:group][:category_ids][1])
+      @category.groups << @group
     end
     respond_to do |format|
       if @group.update(group_params)
@@ -71,7 +63,6 @@ end
     end
   end
 
-  
   def destroy
     @group.destroy
     respond_to do |format|
@@ -81,14 +72,14 @@ end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_group
-      @group = Group.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def group_params
-      params.require(:group).permit!
-     
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_group
+    @group = Group.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def group_params
+    params.require(:group).permit!
+  end
 end

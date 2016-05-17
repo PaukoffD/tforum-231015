@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 gem 'rake', '~> 10.5'
@@ -36,24 +35,32 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem "better_errors"
-  gem "binding_of_caller"
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'mailcatcher'
   gem 'rspec-rails'
-  gem 'selenium-webdriver', '2.35.1'
-  gem 'capybara', '2.2.0'
+
   gem 'factory_girl'
   gem 'factory_girl_rails'
+  gem 'guard-rspec', '~> 4.6', '>= 4.6.4'
+  gem 'selenium-webdriver', '~> 2.53'
+  gem 'capybara', '~> 2.6', '>= 2.6.2'
+  # gem 'libnotify', '~> 0.9.1'
+
+  gem 'shoulda'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'launchy'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-  gem "bullet"
-#gem 'ruby-growl'
-#gem 'ruby_gntp'
+  gem 'bullet'
+  # gem 'ruby-growl'
+  # gem 'ruby_gntp'
 
-#gem "uniform_notifier"
+  # gem "uniform_notifier"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
