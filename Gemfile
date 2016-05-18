@@ -46,7 +46,7 @@ group :development, :test do
   gem 'selenium-webdriver', '~> 2.53'
   gem 'capybara', '~> 2.6', '>= 2.6.2'
   # gem 'libnotify', '~> 0.9.1'
-
+  gem 'faker'
   gem 'shoulda'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'

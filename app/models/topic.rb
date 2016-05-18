@@ -7,6 +7,8 @@ class Topic < ActiveRecord::Base
   extend FriendlyId
   friendly_id :subject, use: :slugged
   acts_as_taggable
+  
+  validates :subject, presence: true, length: { minimum: 5, too_short: "мало символов в заголовке" }
 
   scope :hidden, -> { where hidden: true }
   scope :visible, -> { where hidden: false }

@@ -3,6 +3,8 @@ class Forum < ActiveRecord::Base
 
   has_many :topics, dependent: :destroy
   has_many :posts, through: :topics, dependent: :destroy
+  
+  validates :name, presence: true, length: { minimum: 5, too_short: "мало символов в заголовке" }
   extend FriendlyId
   friendly_id :name, use: :slugged
   self.per_page = 15
