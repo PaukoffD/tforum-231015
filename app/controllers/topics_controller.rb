@@ -5,35 +5,35 @@ before_action :set_topic, only: [:show, :edit, :update, :destroy]
 def normalize_friendly_id(string)
  #string.to_slug.normalize.to_s
 	string.to_slug.normalize(transliterations: :russian).to_s
-end 
+end
 
 def index
   @group=Group.last
   @category= Category.all
-  @forums = Forum.all 
+  @forums = Forum.all
 if params[:tag]
   @topics = Topic.tagged_with(params[:tag]).page(params[:page])
 else
   # @search = Topic.search(params[:q])
-	
+
   @topics = Topic.order(:created_at).reorder('id DESC').all.page(params[:page])
 
 end
 
- 
+
   #topic=Topic.order(:created_at).reorder('id DESC').last
 	 #@forum = Forum.find(topic.forum_id)
-	
+
 end
-  
+
 def top
     #count = Post.where(topic_id: @topic.id).count
     @topics = Topic.order(views_count: :DESC).all.page(params[:page])
     #topic=Topic.order(:created_at).reorder('id DESC').last
 	   #@forum = Forum.find(topic.forum_id)
-	
+
   end
-  
+
 def indextopic
   @group=Group.last
   @category= Category.all
@@ -42,9 +42,9 @@ def indextopic
   @topics = Topic.order('views_count DESC').all.page(params[:page])
   #topic=Topic.order(:created_at).reorder('id DESC').last
 	 #@forum = Forum.friendly.find(params[:id])
-	
+
 end
- 
+
 def show
  # @user = User.find(params[:id])
  @topic = Topic.friendly.find(params[:id])
@@ -65,11 +65,11 @@ def search
     #@page_title = this_blog.search_title_template.to_title(@articles, this_blog, params)
     #@description = this_blog.search_desc_template.to_title(@articles, this_blog, params)
   end
-  
-  
-  
-  
-  
+
+
+
+
+
 def new
   @forum = Forum.friendly.find(params[:forum_id])
   @topic = Topic.new
@@ -81,12 +81,12 @@ def edit
 @topic = Topic.friendly.find(params[:id])
 end
 
-  
+
 def create
  @topic = Topic.new(topic_params)
 
 	@user = User.find(current_user.id)
-	@post = Post.new 
+	@post = Post.new
   @topic.last_post_at = Time.now
 	@topic.user_id = current_user.id
 	@topic.last_id = current_user.id
@@ -99,17 +99,21 @@ forum=Forum.find(topic_params['forum_id'])
 	@post.user_id = current_user.id
 	#@post.save
 	if (@user.count_message!=nil)
-	  @user.count_message=@user.count_message+1		else	  @user.count_message=0
-	  @user.count_message=@user.count_message+1		 end	@user.save
+	  @user.count_message=@user.count_message+1
+  else
+	  @user.count_message=0
+	  @user.count_message=@user.count_message+1
+  end
+  @user.save
 	@topic.slug= normalize_friendly_id(@topic.subject)
 	@topic.save
   respond_to do |format|
       #  if @topic.save
       format.html { redirect_to topic_path(@topic.id), notice: 'Topic was successfully created.' }
-     
+
     #else
     #  format.html { render :new }
-     
+
   end
   end
 
